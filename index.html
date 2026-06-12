@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoxCraft — Free AI Text to Speech, No Signup</title>
+  <meta name="description" content="Convert any text to natural AI voice and download as MP3 instantly. 70+ Microsoft neural voices, no account required, no watermark. Free forever.">
+  <meta name="keywords" content="free text to speech, AI voice generator, TTS MP3 download, no signup TTS, Microsoft neural voices, free voiceover, urdu text to speech">
+  <meta property="og:title" content="VoxCraft — Free AI Text to Speech">
+  <meta property="og:description" content="70+ AI voices. Instant MP3 download. No account. No watermark. Free.">
+  <meta property="og:url" content="https://voxcraft.site">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://voxcraft.site">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0812;
+      --surface:   #120f1e;
+      --border:    rgba(255,255,255,0.07);
+      --purple:    #7c3aed;
+      --violet:    #a78bfa;
+      --blue:      #60a5fa;
+      --text:      #f1f0f5;
+      --muted:     rgba(255,255,255,0.45);
+      --faint:     rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,8,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.25rem;
+      background: linear-gradient(135deg, #fff 0%, var(--violet) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--purple);
+      color: white !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.88rem !important;
+      transition: background 0.2s !important;
+      border: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .nav-cta:hover { background: #6d28d9 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(124,58,237,0.12);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem; color: var(--violet);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--blue) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--purple), #4f46e5);
+      color: white; text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-weight: 500; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(124,58,237,0.35);
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.45); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--faint);
+      border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-weight: 500; font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+
+    /* ── WAVE DIVIDER ── */
+    .wave { width: 100%; overflow: hidden; line-height: 0; }
+    .wave svg { display: block; }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--violet); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); max-width: 540px; font-size: 1.05rem; }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .step:hover { border-color: rgba(124,58,237,0.4); }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem; font-weight: 800;
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(96,165,250,0.3));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1; margin-bottom: 0.75rem;
+    }
+    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .step p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── TOOLS GRID ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .tool-card:hover { border-color: rgba(124,58,237,0.35); transform: translateY(-2px); }
+    .tool-icon {
+      font-size: 1.6rem; flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: rgba(124,58,237,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tool-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .tool-card p { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── LANGUAGES ── */
+    .lang-section { background: var(--surface); }
+    .lang-pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-top: 2rem;
+    }
+    .lang-pill {
+      background: var(--faint);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.82rem; color: var(--muted);
+      transition: all 0.2s;
+    }
+    .lang-pill:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); color: var(--violet); }
+    .lang-pill.featured { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.3); color: var(--violet); }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    .pricing-card.featured {
+      border-color: rgba(124,58,237,0.5);
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05));
+      position: relative;
+    }
+    .pricing-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--purple), #4f46e5);
+      color: white; font-size: 0.75rem; font-weight: 600;
+      padding: 0.25rem 0.9rem; border-radius: 100px;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .plan-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem; font-weight: 800;
+      margin: 0.5rem 0 0.2rem;
+      background: linear-gradient(135deg, #fff, var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .plan-period { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; }
+    .plan-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; }
+    .plan-features li::before { content: "✓"; color: var(--violet); font-weight: 700; flex-shrink: 0; }
+    .plan-features li.muted::before { content: "✗"; color: rgba(255,255,255,0.2); }
+    .plan-features li.muted { color: var(--muted); }
+    .btn-plan {
+      display: block; width: 100%; text-align: center;
+      padding: 0.85rem; border-radius: 12px;
+      font-weight: 500; font-size: 0.95rem;
+      text-decoration: none; transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-plan-free { background: var(--faint); border: 1px solid var(--border); color: var(--text); }
+    .btn-plan-free:hover { background: rgba(255,255,255,0.1); }
+    .btn-plan-pro { background: linear-gradient(135deg, var(--purple), #4f46e5); color: white; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
+    .btn-plan-pro:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.45); transform: translateY(-1px); }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 720px; }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 1.4rem;
+      color: var(--text); font-size: 0.95rem; font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      text-align: left; gap: 1rem;
+    }
+    .faq-q:hover { background: var(--faint); }
+    .faq-arrow { color: var(--violet); font-size: 1.1rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a {
+      display: none; padding: 0 1.4rem 1.1rem;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.1) 100%);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 24px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+    .cta-banner h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800; margin-bottom: 0.75rem;
+    }
+    .cta-banner p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+      background: linear-gradient(135deg, #fff, var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      display: inline-block; margin-bottom: 0.75rem;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+
+    /* ── AD OVERLAY ── */
+    .ad-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(10, 8, 18, 0.97);
+      backdrop-filter: blur(12px);
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+    .ad-overlay.active { display: flex; }
+    .ad-box {
+      background: var(--surface);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 20px;
+      padding: 1.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 60px rgba(124,58,237,0.15);
+    }
+    .ad-box h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .ad-box .ad-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .ad-placement {
+      background: #0a0812;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .ad-timer-display {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .ad-timer-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .ad-progress-wrap {
+      width: 100%;
+      height: 5px;
+      background: var(--faint);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .ad-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+    .ad-skip-btn {
+      display: none;
+      background: linear-gradient(135deg, var(--purple), #4f46e5);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
+    }
+    .ad-skip-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(124,58,237,0.45); }
+    .ad-skip-btn.visible { display: inline-block; animation: fadeUp 0.3s ease both; }
+    .ad-status {
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      min-height: 1.1rem;
+    }
+    .ad-status.redirecting {
+      color: var(--violet);
+      font-weight: 500;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      section { padding: 3.5rem 1.2rem; }
+      .hero { padding: 6rem 1.2rem 3rem; }
+      .hero-stats { gap: 1.2rem; }
+      .cta-banner { padding: 2.5rem 1.2rem; }
+      .ad-box { padding: 1.2rem; }
+      .ad-timer-display { font-size: 2rem; }
+      .ad-placement { min-height: 200px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <!-- Adsterra Social Bar -->
+  <script src="https://pl29723108.effectivecpmnetwork.com/97/ba/e0/97bae0f643c7340a8b5a1dbc1eba8bee.js"></script>
+</head>
+<body>
+
+<!-- AD OVERLAY -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-box">
+    <h3>Advertisement</h3>
+    <p class="ad-sub">Please wait while we prepare your destination...</p>
+
+    <!-- Ad placement container -->
+    <div class="ad-placement" id="adPlacement">
+      <script type="text/javascript">
+        atOptions = {
+          'key': '39e7b8dab5b7cc70522b647bb838d586',
+          'format': 'iframe',
+          'height': 250,
+          'width': 300,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="https://www.highperformanceformat.com/39e7b8dab5b7cc70522b647bb838d586/invoke.js"></script>
+    </div>
+
+    <div class="ad-timer-display" id="adTimerDisplay">8</div>
+    <div class="ad-timer-label">seconds remaining</div>
+    <div class="ad-progress-wrap">
+      <div class="ad-progress-fill" id="adProgressFill"></div>
+    </div>
+    <button class="ad-skip-btn" id="adSkipBtn">Skip Ad</button>
+    <div class="ad-status" id="adStatus">Loading content...</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">VoxCraft</a>
+  <div class="nav-links">
+    <a href="#tools">Tools</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <button class="nav-cta ad-trigger" data-redirect="https://voxcraft.streamlit.app">Launch App</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge">Free AI Audio Studio - No Signup Required</div>
+  <h1>Turn Text Into<br><span>Natural AI Voice</span><br>In Seconds</h1>
+  <p class="hero-sub">70+ Microsoft neural voices across 20+ languages. Download as MP3 instantly. No account. No watermark. No credit card.</p>
+  <div class="hero-actions">
+    <button class="btn-primary ad-trigger" data-redirect="https://voxcraft.streamlit.app">
+      Try VoxCraft Free
+    </button>
+    <a href="#tools" class="btn-secondary">See All Tools</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">70+</div>
+      <div class="stat-label">Neural Voices</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Languages</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">9</div>
+      <div class="stat-label">Audio Tools</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">No Signup</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">From text to audio<br>in under 60 seconds</h2>
+      <p class="section-sub">No account creation. No waiting for confirmation emails. Just open, type, and download.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Paste Your Text</h3>
+        <p>Type or paste up to 5,000 characters. Supports any language including Urdu, Arabic, and Hindi.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Choose a Voice</h3>
+        <p>Pick from 70+ Microsoft neural voices. Filter by language, gender, or style.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Generate Speech</h3>
+        <p>Click Generate Speech. Your audio is ready in seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Download MP3</h3>
+        <p>Hit Download. Use it in YouTube videos, podcasts, e-learning courses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" style="background: var(--surface);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">9 Audio Tools</div>
+      <h2 class="section-title">Everything you need<br>to create audio content</h2>
+      <p class="section-sub">VoxCraft is more than TTS. It is a complete free audio studio for creators.</p>
+    </div>
+    <div class="tools-grid reveal">
+      <div class="tool-card">
+        <div class="tool-icon">&#127908;</div>
+        <div>
+          <h3>Text to Speech</h3>
+          <p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#9889;</div>
+        <div>
+          <h3>Batch TTS</h3>
+          <p>Paste multiple lines, generate all as separate MP3s in one click.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#128221;</div>
+        <div>
+          <h3>Transcription</h3>
+          <p>Convert audio files to accurate text. Supports MP3, WAV, M4A.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#128260;</div>
+        <div>
+          <h3>Format Converter</h3>
+          <p>Convert between MP3, WAV, OGG, and FLAC instantly.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#128256;</div>
+        <div>
+          <h3>Audio Merger</h3>
+          <p>Combine multiple audio files into one seamless track.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#9986;&#65039;</div>
+        <div>
+          <h3>Audio Cutter</h3>
+          <p>Trim audio to exact timestamps. Cut intros or silence.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#127925;</div>
+        <div>
+          <h3>Background Music</h3>
+          <p>Generate royalty-free algorithmic background music.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#127897;&#65039;</div>
+        <div>
+          <h3>Noise Remover</h3>
+          <p>Clean up background noise from voice recordings.</p>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">&#127917;</div>
+        <div>
+          <h3>Voice Changer</h3>
+          <p>Apply robot, echo, chipmunk, or pitch-shift effects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD BANNER -->
+<section style="padding:2rem 1.5rem">
+  <div style="display:flex;justify-content:center;align-items:center">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '39e7b8dab5b7cc70522b647bb838d586',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/39e7b8dab5b7cc70522b647bb838d586/invoke.js"></script>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Language Support</div>
+      <h2 class="section-title">Speak any language<br>with natural AI voices</h2>
+      <p class="section-sub">One of the few free TTS tools with genuine support for Urdu, Arabic, and Hindi.</p>
+    </div>
+    <div class="lang-pills reveal">
+      <span class="lang-pill featured">Urdu</span>
+      <span class="lang-pill featured">Hindi</span>
+      <span class="lang-pill featured">Arabic</span>
+      <span class="lang-pill featured">English (US)</span>
+      <span class="lang-pill featured">English (UK)</span>
+      <span class="lang-pill">English (AU)</span>
+      <span class="lang-pill">English (IN)</span>
+      <span class="lang-pill">Spanish</span>
+      <span class="lang-pill">French</span>
+      <span class="lang-pill">German</span>
+      <span class="lang-pill">Portuguese</span>
+      <span class="lang-pill">Japanese</span>
+      <span class="lang-pill">Korean</span>
+      <span class="lang-pill">Chinese</span>
+      <span class="lang-pill">Russian</span>
+      <span class="lang-pill">Turkish</span>
+      <span class="lang-pill">Italian</span>
+      <span class="lang-pill">Dutch</span>
+      <span class="lang-pill">Swedish</span>
+      <span class="lang-pill">Polish</span>
+      <span class="lang-pill">+ more</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background: var(--surface);">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, honest pricing</h2>
+      <p class="section-sub" style="margin:0 auto">No trial periods. No hidden fees. The free plan is genuinely free.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-period">forever - no credit card needed</div>
+        <ul class="plan-features">
+          <li>5,000 characters per month</li>
+          <li>All 70+ voices</li>
+          <li>All 9 audio tools</li>
+          <li>MP3 download - no watermark</li>
+          <li>No account required</li>
+          <li class="muted">Ads shown</li>
+          <li class="muted">Monthly char limit</li>
+        </ul>
+        <button class="btn-plan btn-plan-free ad-trigger" data-redirect="https://voxcraft.streamlit.app">Start Free</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">840 PKR</div>
+        <div class="plan-period">per month - cancel anytime</div>
+        <ul class="plan-features">
+          <li>Unlimited characters</li>
+          <li>All 70+ voices</li>
+          <li>All 9 audio tools</li>
+          <li>MP3 download - no watermark</li>
+          <li>No account required</li>
+          <li>No ads</li>
+          <li>Priority support</li>
+        </ul>
+        <button class="btn-plan btn-plan-pro ad-trigger" data-redirect="https://voxcraft.streamlit.app">Upgrade to Pro</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Is VoxCraft really free? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">Yes. The core text-to-speech tool with MP3 download is completely free with no signup required. Free users get 5,000 characters per month across all tools with no watermark on the audio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I use the audio for YouTube videos? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">Yes. Audio generated by VoxCraft can be used for personal and commercial projects including YouTube videos, podcasts, e-learning courses, and social media content.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What voices are available? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">VoxCraft uses Microsoft Edge neural voices - over 70 options across 20+ languages including English, Urdu, Hindi, Arabic, Spanish, French, German, Japanese, Korean, Chinese, and many more.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the character limit? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">Free users can convert up to 5,000 characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need to create an account? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">No. VoxCraft works without any account or signup. Open the app, paste your text, choose a voice, and download. The Pro plan uses a license key system - no username or password needed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does it support Urdu text to speech? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">Yes. VoxCraft has full Urdu support with natural-sounding Microsoft neural voices. It supports proper Urdu script and handles Urdu-specific sounds accurately.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What audio formats are supported? <span class="faq-arrow">&#9662;</span></button>
+        <div class="faq-a">TTS output is downloaded as MP3. The format converter tool supports converting between MP3, WAV, OGG, and FLAC. The transcription and other tools accept MP3, WAV, M4A, OGG, and FLAC as input.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">VoxCraft</div>
+    <div class="footer-links">
+      <a href="https://voxcraft.streamlit.app" target="_blank">Launch App</a>
+      <a href="https://voxcraft.streamlit.app/?page=blog" target="_blank">Blog</a>
+      <a href="https://voxcraft.streamlit.app/?page=privacy" target="_blank">Privacy Policy</a>
+      <a href="https://voxcraft.streamlit.app/?page=terms" target="_blank">Terms of Service</a>
+      <a href="mailto:support@voxcraft.site">support@voxcraft.site</a>
+    </div>
+    <div class="footer-copy">2026 VoxCraft Studio. Built with love on mobile.</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  var reveals = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(function(el) { obs.observe(el); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // AD SYSTEM - per visit only
+  var adShownThisVisit = false;
+  var AD_DURATION = 8000;
+  var SKIP_DELAY = 5000;
+
+  var adOverlay = document.getElementById('adOverlay');
+  var adTimerDisplay = document.getElementById('adTimerDisplay');
+  var adProgressFill = document.getElementById('adProgressFill');
+  var adSkipBtn = document.getElementById('adSkipBtn');
+  var adStatus = document.getElementById('adStatus');
+
+  var adInterval = null;
+  var adTimeout = null;
+  var skipTimeout = null;
+  var targetUrl = '';
+
+  function clearAdTimers() {
+    if (adInterval) { clearInterval(adInterval); adInterval = null; }
+    if (adTimeout) { clearTimeout(adTimeout); adTimeout = null; }
+    if (skipTimeout) { clearTimeout(skipTimeout); skipTimeout = null; }
+  }
+
+  function closeOverlay() {
+    adOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    adSkipBtn.classList.remove('visible');
+    clearAdTimers();
+  }
+
+  function doRedirect(url) {
+    window.location.href = url;
+  }
+
+  function finishAd() {
+    adShownThisVisit = true;
+    adStatus.textContent = 'Redirecting now...';
+    adStatus.classList.add('redirecting');
+    setTimeout(function() {
+      closeOverlay();
+      doRedirect(targetUrl);
+    }, 300);
+  }
+
+  function startAd(url) {
+    targetUrl = url;
+    var startTime = Date.now();
+    var endTime = startTime + AD_DURATION;
+
+    adOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    adSkipBtn.classList.remove('visible');
+    adStatus.textContent = 'Loading content...';
+    adStatus.classList.remove('redirecting');
+
+    adInterval = setInterval(function() {
+      var now = Date.now();
+      var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
+      var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
+
+      adTimerDisplay.textContent = remaining;
+      adProgressFill.style.width = pct + '%';
+
+      if (now >= endTime) {
+        clearInterval(adInterval);
+        adInterval = null;
+      }
+    }, 100);
+
+    skipTimeout = setTimeout(function() {
+      adSkipBtn.classList.add('visible');
+      adStatus.textContent = 'You can skip now or wait for auto-redirect';
+    }, SKIP_DELAY);
+
+    adTimeout = setTimeout(function() {
+      finishAd();
+    }, AD_DURATION);
+  }
+
+  function handleAdTrigger(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var url = this.getAttribute('data-redirect');
+    if (!url) return;
+
+    if (adShownThisVisit) {
+      doRedirect(url);
+    } else {
+      startAd(url);
+    }
+  }
+
+  adSkipBtn.addEventListener('click', function() {
+    clearAdTimers();
+    finishAd();
+  });
+
+  document.querySelectorAll('.ad-trigger').forEach(function(btn) {
+    btn.addEventListener('click', handleAdTrigger);
+  });
+</script>
+
+</body>
+</html>
