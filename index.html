@@ -395,73 +395,29 @@
       position: relative;
       box-shadow: 0 0 60px rgba(124,58,237,0.15);
     }
-    .ad-box h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-    .ad-box .ad-sub {
-      color: var(--muted);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
+    .ad-box h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .ad-box .ad-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
     .ad-timer-display {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
+      font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
       background: linear-gradient(135deg, #fff, var(--violet));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-      margin-bottom: 0.3rem;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1; margin-bottom: 0.3rem;
     }
-    .ad-timer-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      letter-spacing: 0.05em;
-    }
-    .ad-progress-wrap {
-      width: 100%;
-      height: 5px;
-      background: var(--faint);
-      border-radius: 3px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .ad-progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--purple), var(--blue));
-      border-radius: 3px;
-      width: 0%;
-      transition: width 0.1s linear;
-    }
+    .ad-timer-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .ad-progress-wrap { width: 100%; height: 5px; background: var(--faint); border-radius: 3px; overflow: hidden; margin-bottom: 1rem; }
+    .ad-progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 3px; width: 0%; transition: width 0.1s linear; }
     .ad-skip-btn {
       display: none;
       background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: none;
+      color: white; padding: 0.7rem 1.8rem; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+      cursor: pointer; transition: all 0.2s; border: none;
       box-shadow: 0 4px 20px rgba(124,58,237,0.3);
     }
     .ad-skip-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(124,58,237,0.45); }
     .ad-skip-btn.visible { display: inline-block; animation: fadeUp 0.3s ease both; }
-    .ad-status {
-      margin-top: 0.8rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      min-height: 1.1rem;
-    }
-    .ad-status.redirecting {
-      color: var(--violet);
-      font-weight: 500;
-    }
+    .ad-status { margin-top: 0.8rem; font-size: 0.75rem; color: var(--muted); min-height: 1.1rem; }
+    .ad-status.redirecting { color: var(--violet); font-weight: 500; }
 
     /* ANIMATIONS */
     @keyframes fadeUp {
@@ -488,7 +444,7 @@
     }
   </style>
 
-  <!-- Adsterra Social Bar (shows interstitial ads) -->
+  <!-- Adsterra Social Bar -->
   <script src="https://pl29723108.effectivecpmnetwork.com/97/ba/e0/97bae0f643c7340a8b5a1dbc1eba8bee.js"></script>
 </head>
 <body>
@@ -515,7 +471,7 @@
     <a href="#tools">Tools</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-    <button class="nav-cta ad-trigger" data-redirect="https://voxcraft.streamlit.app">Launch App</button>
+    <button class="nav-cta ad-trigger">Launch App</button>
   </div>
 </nav>
 
@@ -526,9 +482,7 @@
   <h1>Turn Text Into<br><span>Natural AI Voice</span><br>In Seconds</h1>
   <p class="hero-sub">70+ Microsoft neural voices across 20+ languages. Download as MP3 instantly. No account. No watermark. No credit card.</p>
   <div class="hero-actions">
-    <button class="btn-primary ad-trigger" data-redirect="https://voxcraft.streamlit.app">
-      Try VoxCraft Free
-    </button>
+    <button class="btn-primary ad-trigger">Try VoxCraft Free</button>
     <a href="#tools" class="btn-secondary">See All Tools</a>
   </div>
   <div class="hero-stats">
@@ -563,7 +517,8 @@
       <div class="step">
         <div class="step-num">01</div>
         <h3>Paste Your Text</h3>
-        <p>Type or paste up to 5,000 characters. Supports any language including Urdu, Arabic, and Hindi.</p>
+        <!-- vc-char: auto-updated by admin panel -->
+        <p>Type or paste up to <span class="vc-char-limit">5,000</span> characters. Supports any language including Urdu, Arabic, and Hindi.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
@@ -595,66 +550,39 @@
     <div class="tools-grid reveal">
       <div class="tool-card">
         <div class="tool-icon">🎤</div>
-        <div>
-          <h3>Text to Speech</h3>
-          <p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p>
-        </div>
+        <div><h3>Text to Speech</h3><p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">⚡</div>
-        <div>
-          <h3>Batch TTS</h3>
-          <p>Paste multiple lines, generate all as separate MP3s in one click.</p>
-        </div>
+        <div><h3>Batch TTS</h3><p>Paste multiple lines, generate all as separate MP3s in one click.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">📝</div>
-        <div>
-          <h3>Transcription</h3>
-          <p>Convert audio files to accurate text. Supports MP3, WAV, M4A.</p>
-        </div>
+        <div><h3>Transcription</h3><p>Convert audio files to accurate text. Supports MP3, WAV, M4A.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">🔄</div>
-        <div>
-          <h3>Format Converter</h3>
-          <p>Convert between MP3, WAV, OGG, and FLAC instantly.</p>
-        </div>
+        <div><h3>Format Converter</h3><p>Convert between MP3, WAV, OGG, and FLAC instantly.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">➡️</div>
-        <div>
-          <h3>Audio Merger</h3>
-          <p>Combine multiple audio files into one seamless track.</p>
-        </div>
+        <div><h3>Audio Merger</h3><p>Combine multiple audio files into one seamless track.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">✂️</div>
-        <div>
-          <h3>Audio Cutter</h3>
-          <p>Trim audio to exact timestamps. Cut intros or silence.</p>
-        </div>
+        <div><h3>Audio Cutter</h3><p>Trim audio to exact timestamps. Cut intros or silence.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">🎵</div>
-        <div>
-          <h3>Background Music</h3>
-          <p>Generate royalty-free algorithmic background music.</p>
-        </div>
+        <div><h3>Background Music</h3><p>Generate royalty-free algorithmic background music.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">🎙️</div>
-        <div>
-          <h3>Noise Remover</h3>
-          <p>Clean up background noise from voice recordings.</p>
-        </div>
+        <div><h3>Noise Remover</h3><p>Clean up background noise from voice recordings.</p></div>
       </div>
       <div class="tool-card">
         <div class="tool-icon">🎭</div>
-        <div>
-          <h3>Voice Changer</h3>
-          <p>Apply robot, echo, chipmunk, or pitch-shift effects.</p>
-        </div>
+        <div><h3>Voice Changer</h3><p>Apply robot, echo, chipmunk, or pitch-shift effects.</p></div>
       </div>
     </div>
   </div>
@@ -719,12 +647,16 @@
       <p class="section-sub" style="margin:0 auto">No trial periods. No hidden fees. The free plan is genuinely free.</p>
     </div>
     <div class="pricing-grid reveal">
+
+      <!-- FREE CARD -->
       <div class="pricing-card">
         <div class="plan-name">Free</div>
-        <div class="plan-price">$0</div>
+        <!-- vc-free-price: updated by admin -->
+        <div class="plan-price vc-free-price">$0</div>
         <div class="plan-period">forever - no credit card needed</div>
-        <ul class="plan-features">
-          <li>5,000 characters per month</li>
+        <!-- vc-free-features: entire list rebuilt by admin -->
+        <ul class="plan-features vc-free-features">
+          <li><span class="vc-char-limit">5,000</span> characters per month</li>
           <li>All 70+ voices</li>
           <li>All 9 audio tools</li>
           <li>MP3 download - no watermark</li>
@@ -732,14 +664,18 @@
           <li class="muted">Ads shown</li>
           <li class="muted">Monthly char limit</li>
         </ul>
-        <button class="btn-plan btn-plan-free ad-trigger" data-redirect="https://voxcraft.streamlit.app">Start Free</button>
+        <button class="btn-plan btn-plan-free ad-trigger">Start Free</button>
       </div>
+
+      <!-- PRO CARD -->
       <div class="pricing-card featured">
         <div class="pricing-badge">Most Popular</div>
         <div class="plan-name">Pro</div>
-        <div class="plan-price">840 PKR</div>
+        <!-- vc-pro-price: updated by admin -->
+        <div class="plan-price vc-pro-price">840 PKR</div>
         <div class="plan-period">per month - cancel anytime</div>
-        <ul class="plan-features">
+        <!-- vc-pro-features: entire list rebuilt by admin -->
+        <ul class="plan-features vc-pro-features">
           <li>Unlimited characters</li>
           <li>All 70+ voices</li>
           <li>All 9 audio tools</li>
@@ -748,8 +684,10 @@
           <li>No ads</li>
           <li>Priority support</li>
         </ul>
-        <button class="btn-plan btn-plan-pro ad-trigger" data-redirect="https://voxcraft.streamlit.app">Upgrade to Pro</button>
+        <!-- vc-checkout-btn: href updated by admin -->
+        <a class="btn-plan btn-plan-pro vc-checkout-btn" href="https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d" target="_blank">Upgrade to Pro</a>
       </div>
+
     </div>
   </div>
 </section>
@@ -764,7 +702,8 @@
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-q">Is VoxCraft really free? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">Yes. The core text-to-speech tool with MP3 download is completely free with no signup required. Free users get 5,000 characters per month across all tools with no watermark on the audio.</div>
+        <!-- vc-faq-free-chars: char limit in FAQ answer updated by admin -->
+        <div class="faq-a">Yes. The core text-to-speech tool with MP3 download is completely free with no signup required. Free users get <span class="vc-char-limit">5,000</span> characters per month across all tools with no watermark on the audio.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Can I use the audio for YouTube videos? <span class="faq-arrow">▾</span></button>
@@ -776,7 +715,8 @@
       </div>
       <div class="faq-item">
         <button class="faq-q">What is the character limit? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">Free users can convert up to 5,000 characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.</div>
+        <!-- vc-faq-char-answer: full answer updated by admin -->
+        <div class="faq-a vc-faq-char-answer">Free users can convert up to <span class="vc-char-limit">5,000</span> characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Do I need to create an account? <span class="faq-arrow">▾</span></button>
@@ -799,7 +739,7 @@
   <div class="footer-inner">
     <div class="footer-logo">VoxCraft</div>
     <div class="footer-links">
-      <a href="https://voxcraft.streamlit.app" target="_blank">Launch App</a>
+      <a href="https://voxcraft.streamlit.app" target="_blank" class="vc-app-link">Launch App</a>
       <a href="https://voxcraft.streamlit.app/?page=blog" target="_blank">Blog</a>
       <a href="https://voxcraft.streamlit.app/?page=privacy" target="_blank">Privacy Policy</a>
       <a href="https://voxcraft.streamlit.app/?page=terms" target="_blank">Terms of Service</a>
@@ -810,93 +750,130 @@
 </footer>
 
 <script>
-  // ============================================
-  // ADSTERRA DIRECT LINK INTEGRATION
-  // Flow: Overlay countdown -> Adsterra ad -> App
-  // ============================================
-  var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
+  // ============================================================
+  // VOXCRAFT CONFIG LOADER
+  // Reads config.js from GitHub and updates all dynamic values.
+  // config.js is auto-written by the VoxCraft Admin Panel.
+  // ============================================================
   var APP_URL = 'https://voxcraft.streamlit.app';
 
-  // ============================================
-  // CUSTOM AD OVERLAY WITH COUNTDOWN
-  // ============================================
-  var adOverlay = document.getElementById('adOverlay');
-  var adTimerDisplay = document.getElementById('adTimerDisplay');
-  var adProgressFill = document.getElementById('adProgressFill');
-  var adSkipBtn = document.getElementById('adSkipBtn');
-  var adStatus = document.getElementById('adStatus');
+  function applyVoxCraftConfig(cfg) {
+    // 1. Prices
+    document.querySelectorAll('.vc-free-price').forEach(function(el) {
+      el.textContent = cfg.FREE_PRICE_LABEL || '$0';
+    });
+    document.querySelectorAll('.vc-pro-price').forEach(function(el) {
+      el.textContent = cfg.PRO_PRICE_LABEL || '840 PKR';
+    });
 
-  var adInterval = null;
-  var adTimeout = null;
-  var skipTimeout = null;
+    // 2. Char limit — every .vc-char-limit span on the page
+    var charStr = (cfg.FREE_CHAR_LIMIT || 5000).toLocaleString();
+    document.querySelectorAll('.vc-char-limit').forEach(function(el) {
+      el.textContent = charStr;
+    });
 
-  function clearAdTimers() {
-    if (adInterval) { clearInterval(adInterval); adInterval = null; }
-    if (adTimeout) { clearTimeout(adTimeout); adTimeout = null; }
-    if (skipTimeout) { clearTimeout(skipTimeout); skipTimeout = null; }
+    // 3. Checkout URL — Pro upgrade button
+    if (cfg.CHECKOUT_URL) {
+      document.querySelectorAll('.vc-checkout-btn').forEach(function(el) {
+        el.href = cfg.CHECKOUT_URL;
+        // Pro button should go direct to checkout, not through ad overlay
+        el.removeAttribute('data-redirect');
+      });
+    }
+
+    // 4. Free plan feature list — rebuilt from admin Feature Lists tab
+    if (cfg.FREE_FEATURES && cfg.FREE_FEATURES.length) {
+      document.querySelectorAll('.vc-free-features').forEach(function(ul) {
+        ul.innerHTML = cfg.FREE_FEATURES.map(function(item) {
+          var isMuted = item.startsWith('\u2717'); // ✗
+          return '<li' + (isMuted ? ' class="muted"' : '') + '>' + item.replace(/^[✓✗]\s*/, '') + '</li>';
+        }).join('');
+      });
+    }
+
+    // 5. Pro plan feature list
+    if (cfg.PRO_FEATURES && cfg.PRO_FEATURES.length) {
+      document.querySelectorAll('.vc-pro-features').forEach(function(ul) {
+        ul.innerHTML = cfg.PRO_FEATURES.map(function(item) {
+          return '<li>' + item.replace(/^[✓✗]\s*/, '') + '</li>';
+        }).join('');
+      });
+    }
+
+    // 6. FAQ char answer — update the text inline
+    document.querySelectorAll('.vc-faq-char-answer').forEach(function(el) {
+      el.innerHTML = 'Free users can convert up to <span class="vc-char-limit">' + charStr +
+        '</span> characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.';
+    });
   }
 
-  function closeAdOverlay() {
-    adOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-    adSkipBtn.classList.remove('visible');
-    clearAdTimers();
+  // Load config.js via jsDelivr CDN (refreshes ~30s after admin saves)
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js'
+            + '?_=' + Math.floor(Date.now() / 30000);
+    s.onload = function() {
+      if (window.VoxCraftConfig) applyVoxCraftConfig(window.VoxCraftConfig);
+    };
+    document.head.appendChild(s);
+  })();
+
+  // ============================================================
+  // ADSTERRA DIRECT LINK + AD OVERLAY
+  // ============================================================
+  var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
+
+  var adOverlay      = document.getElementById('adOverlay');
+  var adTimerDisplay = document.getElementById('adTimerDisplay');
+  var adProgressFill = document.getElementById('adProgressFill');
+  var adSkipBtn      = document.getElementById('adSkipBtn');
+  var adStatus       = document.getElementById('adStatus');
+  var adInterval = null, adTimeout = null, skipTimeout = null;
+
+  function clearAdTimers() {
+    if (adInterval)  { clearInterval(adInterval);  adInterval  = null; }
+    if (adTimeout)   { clearTimeout(adTimeout);    adTimeout   = null; }
+    if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
   }
 
   function startAdOverlay() {
-    var AD_DURATION = 8000;
-    var SKIP_DELAY = 5000;
-    var startTime = Date.now();
-    var endTime = startTime + AD_DURATION;
-
+    var AD_DURATION = 8000, SKIP_DELAY = 5000;
+    var startTime = Date.now(), endTime = startTime + AD_DURATION;
     adOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     adSkipBtn.classList.remove('visible');
     adStatus.textContent = 'Loading advertisement...';
     adStatus.classList.remove('redirecting');
 
-    // Update timer and progress
     adInterval = setInterval(function() {
       var now = Date.now();
       var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
       var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
       adTimerDisplay.textContent = remaining;
       adProgressFill.style.width = pct + '%';
-      if (now >= endTime) {
-        clearInterval(adInterval);
-        adInterval = null;
-      }
+      if (now >= endTime) { clearInterval(adInterval); adInterval = null; }
     }, 100);
 
-    // Show skip button after delay
     skipTimeout = setTimeout(function() {
       adSkipBtn.classList.add('visible');
       adStatus.textContent = 'You can skip now or wait for redirect';
     }, SKIP_DELAY);
 
-    // Auto-redirect to ADSTERRA when timer finishes
     adTimeout = setTimeout(function() {
       adStatus.textContent = 'Redirecting to app...';
       adStatus.classList.add('redirecting');
-      setTimeout(function() {
-        window.location.href = ADSTERRA_DIRECT_LINK;
-      }, 300);
+      setTimeout(function() { window.location.href = ADSTERRA_DIRECT_LINK; }, 300);
     }, AD_DURATION);
   }
 
-  // Skip button: go to ad immediately
   adSkipBtn.addEventListener('click', function() {
     clearAdTimers();
     adStatus.textContent = 'Redirecting to app...';
     adStatus.classList.add('redirecting');
-    setTimeout(function() {
-      window.location.href = ADSTERRA_DIRECT_LINK;
-    }, 300);
+    setTimeout(function() { window.location.href = ADSTERRA_DIRECT_LINK; }, 300);
   });
 
-  // ============================================
-  // CTA BUTTONS: Show overlay, then ad, then app
-  // ============================================
+  // All buttons with .ad-trigger class show the overlay
   document.querySelectorAll('.ad-trigger').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -905,30 +882,26 @@
     });
   });
 
-  // ============================================
-  // FOOTER "Launch App" LINK: Same behavior
-  // ============================================
-  document.querySelectorAll('.footer-links a[href="https://voxcraft.streamlit.app"]').forEach(function(link) {
+  // Footer Launch App link
+  document.querySelectorAll('.vc-app-link').forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       startAdOverlay();
     });
   });
 
-  // ============================================
-  // EXISTING SITE FUNCTIONALITY
-  // ============================================
-
-  // Scroll reveal
+  // ============================================================
+  // SCROLL REVEAL
+  // ============================================================
   var reveals = document.querySelectorAll('.reveal');
   var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   reveals.forEach(function(el) { obs.observe(el); });
 
-  // FAQ accordion
+  // ============================================================
+  // FAQ ACCORDION
+  // ============================================================
   document.querySelectorAll('.faq-q').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var item = btn.parentElement;
