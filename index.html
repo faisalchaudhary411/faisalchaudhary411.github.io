@@ -739,10 +739,10 @@
   <div class="footer-inner">
     <div class="footer-logo">VoxCraft</div>
     <div class="footer-links">
-      <a href="https://voxcraft.streamlit.app" target="_blank" class="vc-app-link">Launch App</a>
-      <a href="https://voxcraft.streamlit.app/?page=blog" target="_blank">Blog</a>
-      <a href="https://voxcraft.streamlit.app/?page=privacy" target="_blank">Privacy Policy</a>
-      <a href="https://voxcraft.streamlit.app/?page=terms" target="_blank">Terms of Service</a>
+      <a href="https://app.voxcraft.site" target="_blank" class="vc-app-link">Launch App</a>
+      <a href="https://app.voxcraft.site/?page=blog" target="_blank">Blog</a>
+      <a href="https://app.voxcraft.site/?page=privacy" target="_blank">Privacy Policy</a>
+      <a href="https://app.voxcraft.site/?page=terms" target="_blank">Terms of Service</a>
       <a href="mailto:support@voxcraft.site">support@voxcraft.site</a>
     </div>
     <div class="footer-copy">2026 VoxCraft Studio. Built with love on mobile.</div>
@@ -755,7 +755,7 @@
   // Reads config.js from GitHub and updates all dynamic values.
   // config.js is auto-written by the VoxCraft Admin Panel.
   // ============================================================
-  var APP_URL = 'https://voxcraft.streamlit.app';
+  var APP_URL = 'https://app.voxcraft.site';
 
   function applyVoxCraftConfig(cfg) {
     // 1. Prices
@@ -806,15 +806,32 @@
     });
   }
 
-  // Load config.js via jsDelivr CDN (~30s refresh after admin saves)
+  // Load config.js — tries raw GitHub first (always fresh), falls back to jsDelivr
   (function() {
-    var s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js'
-            + '?_=' + Math.floor(Date.now() / 30000);
-    s.onload = function() {
-      if (window.VoxCraftConfig) applyVoxCraftConfig(window.VoxCraftConfig);
-    };
-    document.head.appendChild(s);
+    function applyWhenReady(retries) {
+      if (window.VoxCraftConfig) {
+        applyVoxCraftConfig(window.VoxCraftConfig);
+      } else if (retries > 0) {
+        setTimeout(function() { applyWhenReady(retries - 1); }, 500);
+      }
+    }
+
+    function loadFromUrl(url, fallbackFn) {
+      var s = document.createElement('script');
+      s.src = url;
+      s.onload = function() { applyWhenReady(5); };
+      s.onerror = function() { if (fallbackFn) fallbackFn(); };
+      document.head.appendChild(s);
+    }
+
+    var ts = Date.now();
+    var rawUrl = 'https://raw.githubusercontent.com/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + ts;
+    var cdnUrl = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + ts;
+
+    // Try raw GitHub first (no cache), fallback to jsDelivr
+    loadFromUrl(rawUrl, function() {
+      loadFromUrl(cdnUrl, null);
+    });
   })();
 
   // ============================================================
