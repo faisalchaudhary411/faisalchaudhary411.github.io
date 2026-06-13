@@ -9,7 +9,7 @@ window.VoxCraftConfig = {
   PRO_PRICE_PKR:      850,
   PRO_PRICE_LABEL:    '850 PKR',
   FREE_PRICE_LABEL:   'Free',
-  CHECKOUT_URL:       'https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d',
+  CHECKOUT_URL:       'https://voxcraft.lemonsqueezy.com/checkout/buy/eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5NGQ1OWNlZi1kYmI4LTRlYTUtYjE3OC1kMjU0MGZjZDY5MTkiLCJqdGkiOiJkZDEyNzVlMDg5MGZiYzgxMWI3OGFiZDY2MTYyOTJkNmE0YjMxNDk1MjdhMWI4NmRiNWRlOGJjZmVmYzBhYzE0NWQ1ODU0Y2E2YTA0ZTQ1MyIsImlhdCI6MTc4MTM2ODE3Ny4yMjI5MzIsIm5iZiI6MTc4MTM2ODE3Ny4yMjI5MzUsImV4cCI6MTc5NzEyMDAwMC4wMzIxMjQsInN1YiI6IjczNTY0OTEiLCJzY29wZXMiOltdfQ.zYcUTB7OPxQRTmAXcsJJOhOQnq6F2Ii3Zz8Eb0iTazp_kZZUnrIoMnO2dzXphdLj6EW27afL848-YErUzuysUjTB9xlf1d2uBiKA38S3TIYoYEUYQxbMgI7ppwtnzf9xI0rvF0-3_yeyPWxH77GP0XQIsznWiXJBQAYlkBzTHHY6QG39_KSeUeqBCaApr9hwo7Y2FvncA5C4SZYuILDR1umiqWw8OE3yTj2_AJjwQBFPiXs8E6qyqGExdUofDiPluPuh53qT9Tz63Hf2o_euyow-VwPJsKPWeJFcXZgGJna6h2On249SahWhYJfeAVJMoL70J2Y3oSqUwBOgxo3SVeKHB-fApbxAQqH3S-JgXjSkSFKlmJDBCQgnOqKyzMQCPj0RvaxTr2euGviVUefZsle9YNcq5oLB9znhoIWodyyjHVOM38UY2BpqL4AtRsSMDXAhO9U4asVZgaUSU-wvdgui04f1xJc_FFMLXoZotwvSbh-Y6fVSDa_R4Sfjh7gVuJUghKjloKZjjZAtWqdnV6rxHJjB8-VEQ_g0L6lvDF1PXQC-Ah1VCKJQ28Huc7TQCG1JXgRROLe9SG_OuhbAVvXMOnuSfCee38Z8O8hKnxO0EHUIjiNAuB9NcdFaL36USRPHOYKv2cQRn94efvk5_zoK9C-L7Q5l6P2ojUIpIlo',
   FREE_FEATURES:      ['✓ All 9 audio tools','✓ 20 neural voices','✓ 10,000chars/month','✓ 10 actions/day','✗ Ads on generate','✗ 5 batch lines max'],
   PRO_FEATURES:       ['✓ All 9 tools unlimited','✓ All 70+ neural voices','✓ Unlimited characters','✓ Unlimited actions/day','✓ Zero ads','✓ Instant generation','✓ 20 batch lines'],
 };
