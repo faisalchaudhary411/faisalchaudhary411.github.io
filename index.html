@@ -806,35 +806,70 @@
     });
   }
 
-  // Load config.js using fetch() — bypasses CORS and CDN cache completely
+  // ============================================================
+  // CONFIG LOADER — loads from GitHub Pages config.js
+  // Uses multiple strategies to ensure values always apply
+  // ============================================================
   (function() {
-    var urls = [
-      'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + Date.now(),
-      'https://cdn.statically.io/gh/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + Date.now(),
-    ];
-
-    function tryFetch(index) {
-      if (index >= urls.length) return;
-      fetch(urls[index], { cache: 'no-store' })
-        .then(function(r) { return r.text(); })
-        .then(function(code) {
-          // Execute the config.js code directly
-          var fn = new Function(code);
-          fn();
-          if (window.VoxCraftConfig) {
-            applyVoxCraftConfig(window.VoxCraftConfig);
-          }
-        })
-        .catch(function() {
-          tryFetch(index + 1);
-        });
+    // Strategy 1: Direct script tag with jsDelivr (most reliable for GitHub Pages)
+    function tryScriptTag(url, onSuccess, onFail) {
+      var s = document.createElement('script');
+      s.src = url;
+      s.async = true;
+      s.onload = function() {
+        if (window.VoxCraftConfig) {
+          applyVoxCraftConfig(window.VoxCraftConfig);
+          onSuccess && onSuccess();
+        } else {
+          onFail && onFail();
+        }
+      };
+      s.onerror = function() { onFail && onFail(); };
+      document.body.appendChild(s);
     }
 
-    // Run after page loads
+    // Strategy 2: fetch() with no-cache
+    function tryFetch(url, onSuccess, onFail) {
+      fetch(url, { cache: 'no-store', mode: 'cors' })
+        .then(function(r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(function(code) {
+          try {
+            (new Function(code))();
+            if (window.VoxCraftConfig) {
+              applyVoxCraftConfig(window.VoxCraftConfig);
+              onSuccess && onSuccess();
+            } else {
+              onFail && onFail();
+            }
+          } catch(e) { onFail && onFail(); }
+        })
+        .catch(function() { onFail && onFail(); });
+    }
+
+    var base = 'https://faisalchaudhary411.github.io/config.js?v=' + Date.now();
+    var cdn1 = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + Date.now();
+    var cdn2 = 'https://cdn.statically.io/gh/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + Date.now();
+
+    // Try in order: direct GitHub Pages URL → jsDelivr → statically → fetch jsDelivr
+    function run() {
+      tryScriptTag(base, null, function() {
+        tryScriptTag(cdn1, null, function() {
+          tryScriptTag(cdn2, null, function() {
+            tryFetch(cdn1, null, function() {
+              tryFetch(cdn2, null, null);
+            });
+          });
+        });
+      });
+    }
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() { tryFetch(0); });
+      document.addEventListener('DOMContentLoaded', run);
     } else {
-      tryFetch(0);
+      run();
     }
   })();
 
