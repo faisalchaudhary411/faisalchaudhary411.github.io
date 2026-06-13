@@ -751,11 +751,123 @@
 
 <script>
   // ============================================================
-  // VOXCRAFT CONFIG LOADER
-  // Reads config.js from GitHub and updates all dynamic values.
-  // config.js is auto-written by the VoxCraft Admin Panel.
+  // GLOBAL VARIABLES — defined first so all functions can access
   // ============================================================
   var APP_URL = 'https://app.voxcraft.site';
+  var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
+
+  var adOverlay      = null;
+  var adTimerDisplay = null;
+  var adProgressFill = null;
+  var adSkipBtn      = null;
+  var adStatus       = null;
+  var adSubText      = null;
+  var adInterval = null, adTimeout = null, skipTimeout = null;
+
+  // Init DOM refs after page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    adOverlay      = document.getElementById('adOverlay');
+    adTimerDisplay = document.getElementById('adTimerDisplay');
+    adProgressFill = document.getElementById('adProgressFill');
+    adSkipBtn      = document.getElementById('adSkipBtn');
+    adStatus       = document.getElementById('adStatus');
+    adSubText      = document.getElementById('adSubText');
+
+    // Skip button
+    if (adSkipBtn) {
+      adSkipBtn.addEventListener('click', function() { goToApp(); });
+    }
+
+    // All .ad-trigger buttons
+    document.querySelectorAll('.ad-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        startAdOverlay();
+      });
+    });
+
+    // Footer Launch App link
+    document.querySelectorAll('.vc-app-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        startAdOverlay();
+      });
+    });
+
+    // Scroll reveal
+    var reveals = document.querySelectorAll('.reveal');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    reveals.forEach(function(el) { obs.observe(el); });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  });
+
+  // ============================================================
+  // AD OVERLAY FUNCTIONS
+  // ============================================================
+  function clearAdTimers() {
+    if (adInterval)  { clearInterval(adInterval);  adInterval  = null; }
+    if (adTimeout)   { clearTimeout(adTimeout);    adTimeout   = null; }
+    if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
+  }
+
+  function goToApp() {
+    clearAdTimers();
+    if (adStatus)       { adStatus.textContent = 'Redirecting to VoxCraft...'; adStatus.style.color = '#a78bfa'; }
+    if (adTimerDisplay) { adTimerDisplay.textContent = '✓'; }
+    setTimeout(function() { window.location.href = APP_URL; }, 400);
+  }
+
+  function startAdOverlay() {
+    if (!adOverlay) return;
+    var AD_DURATION = 8000;
+    var SKIP_DELAY  = 3000;
+    var startTime   = Date.now();
+    var endTime     = startTime + AD_DURATION;
+
+    adOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (adSkipBtn)  adSkipBtn.classList.remove('visible');
+    if (adSubText)  adSubText.textContent = "An ad has opened in a new tab. You'll be redirected to the app automatically.";
+    if (adStatus)   { adStatus.textContent = 'Ad opened in background — you can close it anytime'; adStatus.style.color = ''; }
+
+    // Open ad in new tab
+    try { window.open(ADSTERRA_DIRECT_LINK, '_blank', 'noopener'); }
+    catch(e) { if (adSubText) adSubText.textContent = 'Redirecting to the app in a moment...'; }
+
+    // Countdown
+    adInterval = setInterval(function() {
+      var now = Date.now();
+      var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
+      var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
+      if (adTimerDisplay) adTimerDisplay.textContent = remaining;
+      if (adProgressFill) adProgressFill.style.width = pct + '%';
+      if (now >= endTime) { clearInterval(adInterval); adInterval = null; }
+    }, 100);
+
+    // Show skip button after 3s
+    skipTimeout = setTimeout(function() {
+      if (adSkipBtn) adSkipBtn.classList.add('visible');
+    }, SKIP_DELAY);
+
+    // Redirect to app after countdown
+    adTimeout = setTimeout(function() { goToApp(); }, AD_DURATION);
+  }
+
+  // ============================================================
+  // VOXCRAFT CONFIG LOADER
+  // ============================================================
 
   function applyVoxCraftConfig(cfg) {
     // 1. Prices
@@ -873,128 +985,6 @@
     }
   })();
 
-  // ============================================================
-  // AD OVERLAY — Fixed flow:
-  // 1. User clicks button
-  // 2. Ad opens in NEW TAB (user stays on this page)
-  // 3. Countdown runs on this page
-  // 4. When countdown ends → this page redirects to the app
-  // 5. Skip button available after 3s to go to app immediately
-  // ============================================================
-  var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
-
-  var adOverlay      = document.getElementById('adOverlay');
-  var adTimerDisplay = document.getElementById('adTimerDisplay');
-  var adProgressFill = document.getElementById('adProgressFill');
-  var adSkipBtn      = document.getElementById('adSkipBtn');
-  var adStatus       = document.getElementById('adStatus');
-  var adSubText      = document.getElementById('adSubText');
-  var adInterval = null, adTimeout = null, skipTimeout = null;
-
-  function clearAdTimers() {
-    if (adInterval)  { clearInterval(adInterval);  adInterval  = null; }
-    if (adTimeout)   { clearTimeout(adTimeout);    adTimeout   = null; }
-    if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
-  }
-
-  function goToApp() {
-    clearAdTimers();
-    adStatus.textContent = 'Redirecting to VoxCraft...';
-    adStatus.style.color = '#a78bfa';
-    adTimerDisplay.textContent = '✓';
-    setTimeout(function() {
-      window.location.href = APP_URL;
-    }, 400);
-  }
-
-  function startAdOverlay(redirectUrl) {
-    var AD_DURATION = 8000;
-    var SKIP_DELAY  = 3000;
-    var startTime   = Date.now();
-    var endTime     = startTime + AD_DURATION;
-
-    // Show overlay — user stays on this page
-    adOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    adSkipBtn.classList.remove('visible');
-    adSubText.textContent = 'An ad has opened in a new tab. You\'ll be redirected to the app automatically.';
-    adStatus.textContent  = 'Ad opened in background — you can close it anytime';
-    adStatus.style.color  = '';
-
-    // Open ad in a NEW TAB — user is NOT taken away from this page
-    try {
-      window.open(ADSTERRA_DIRECT_LINK, '_blank', 'noopener');
-    } catch(e) {
-      // Popup blocked — still proceed with countdown to app
-      adSubText.textContent = 'Redirecting to the app in a moment...';
-    }
-
-    // Countdown
-    adInterval = setInterval(function() {
-      var now = Date.now();
-      var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
-      var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
-      adTimerDisplay.textContent = remaining;
-      adProgressFill.style.width = pct + '%';
-      if (now >= endTime) {
-        clearInterval(adInterval);
-        adInterval = null;
-      }
-    }, 100);
-
-    // Show skip button after short delay
-    skipTimeout = setTimeout(function() {
-      adSkipBtn.classList.add('visible');
-    }, SKIP_DELAY);
-
-    // When countdown finishes → redirect THIS page to the app
-    adTimeout = setTimeout(function() {
-      goToApp();
-    }, AD_DURATION);
-  }
-
-  // Skip button → go to app immediately
-  adSkipBtn.addEventListener('click', function() {
-    goToApp();
-  });
-
-  // All .ad-trigger buttons
-  document.querySelectorAll('.ad-trigger').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      startAdOverlay();
-    });
-  });
-
-  // Footer Launch App link
-  document.querySelectorAll('.vc-app-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      startAdOverlay();
-    });
-  });
-
-  // ============================================================
-  // SCROLL REVEAL
-  // ============================================================
-  var reveals = document.querySelectorAll('.reveal');
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  reveals.forEach(function(el) { obs.observe(el); });
-
-  // ============================================================
-  // FAQ ACCORDION
-  // ============================================================
-  document.querySelectorAll('.faq-q').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = btn.parentElement;
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
-    });
-  });
 </script>
 
 </body>
