@@ -806,32 +806,36 @@
     });
   }
 
-  // Load config.js — tries raw GitHub first (always fresh), falls back to jsDelivr
+  // Load config.js using fetch() — bypasses CORS and CDN cache completely
   (function() {
-    function applyWhenReady(retries) {
-      if (window.VoxCraftConfig) {
-        applyVoxCraftConfig(window.VoxCraftConfig);
-      } else if (retries > 0) {
-        setTimeout(function() { applyWhenReady(retries - 1); }, 500);
-      }
+    var urls = [
+      'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + Date.now(),
+      'https://cdn.statically.io/gh/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + Date.now(),
+    ];
+
+    function tryFetch(index) {
+      if (index >= urls.length) return;
+      fetch(urls[index], { cache: 'no-store' })
+        .then(function(r) { return r.text(); })
+        .then(function(code) {
+          // Execute the config.js code directly
+          var fn = new Function(code);
+          fn();
+          if (window.VoxCraftConfig) {
+            applyVoxCraftConfig(window.VoxCraftConfig);
+          }
+        })
+        .catch(function() {
+          tryFetch(index + 1);
+        });
     }
 
-    function loadFromUrl(url, fallbackFn) {
-      var s = document.createElement('script');
-      s.src = url;
-      s.onload = function() { applyWhenReady(5); };
-      s.onerror = function() { if (fallbackFn) fallbackFn(); };
-      document.head.appendChild(s);
+    // Run after page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { tryFetch(0); });
+    } else {
+      tryFetch(0);
     }
-
-    var ts = Date.now();
-    var rawUrl = 'https://raw.githubusercontent.com/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + ts;
-    var cdnUrl = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + ts;
-
-    // Try raw GitHub first (no cache), fallback to jsDelivr
-    loadFromUrl(rawUrl, function() {
-      loadFromUrl(cdnUrl, null);
-    });
   })();
 
   // ============================================================
