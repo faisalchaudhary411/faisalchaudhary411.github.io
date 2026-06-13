@@ -6,7 +6,7 @@ window.VoxCraftConfig = {
   FREE_PREVIEW_LIMIT: 6,
   FREE_VOICES_COUNT:  20,
   PRO_BATCH_MAX:      20,
-  PRO_PRICE_PKR:      840,
+  PRO_PRICE_PKR:      850,
   PRO_PRICE_LABEL:    '840 PKR',
   FREE_PRICE_LABEL:   '$0',
   CHECKOUT_URL:       'https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d',
