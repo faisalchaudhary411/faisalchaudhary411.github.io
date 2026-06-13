@@ -12,15 +12,15 @@
   <meta property="og:title" content="VoxCraft - Free AI Text to Speech">
   <meta property="og:description" content="70+ AI voices. Instant MP3 download. No account. No watermark. Free.">
   <meta property="og:url" content="https://voxcraft.site">
-<link rel="icon" type="image/png" href="/logo.png">
-<link rel="shortcut icon" type="image/png" href="/logo.png">
-<link rel="apple-touch-icon" href="/logo.png">
-<meta property="og:image" content="https://voxcraft.site/logo.png">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta name="twitter:image" content="https://voxcraft.site/logo.png">
-<meta name="twitter:card" content="summary">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://voxcraft.site/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://voxcraft.site/logo.png">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="shortcut icon" type="image/png" href="/logo.png">
+  <link rel="apple-touch-icon" href="/logo.png">
   <link rel="canonical" href="https://voxcraft.site">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -838,7 +838,12 @@
   }
 
   function startAdOverlay() {
-    if (!adOverlay) return;
+    // Check if ad already shown this session — go direct to app
+    if (sessionStorage.getItem('vc_ad_shown')) {
+      window.location.href = APP_URL;
+      return;
+    }
+
     var AD_DURATION = 8000;
     var SKIP_DELAY  = 3000;
     var startTime   = Date.now();
@@ -849,6 +854,9 @@
     if (adSkipBtn)  adSkipBtn.classList.remove('visible');
     if (adSubText)  adSubText.textContent = "An ad has opened in a new tab. You'll be redirected to the app automatically.";
     if (adStatus)   { adStatus.textContent = 'Ad opened in background — you can close it anytime'; adStatus.style.color = ''; }
+
+    // Mark ad as shown for this session
+    sessionStorage.setItem('vc_ad_shown', '1');
 
     // Open ad in new tab
     try { window.open(ADSTERRA_DIRECT_LINK, '_blank', 'noopener'); }
