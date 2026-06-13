@@ -449,18 +449,18 @@
 </head>
 <body>
 
-<!-- AD OVERLAY -->
+  <!-- AD OVERLAY -->
 <div class="ad-overlay" id="adOverlay">
   <div class="ad-box">
-    <h3>Advertisement</h3>
-    <p class="ad-sub">Please wait while we prepare your destination...</p>
+    <h3>Taking you to VoxCraft</h3>
+    <p class="ad-sub" id="adSubText">An ad has opened in a new tab. You'll be redirected to the app automatically.</p>
     <div class="ad-timer-display" id="adTimerDisplay">8</div>
-    <div class="ad-timer-label">seconds remaining</div>
+    <div class="ad-timer-label">seconds until app opens</div>
     <div class="ad-progress-wrap">
       <div class="ad-progress-fill" id="adProgressFill"></div>
     </div>
-    <button class="ad-skip-btn" id="adSkipBtn">Skip Ad</button>
-    <div class="ad-status" id="adStatus">Loading content...</div>
+    <button class="ad-skip-btn" id="adSkipBtn">Go to App Now →</button>
+    <div class="ad-status" id="adStatus">Ad opened in background tab — you can close it anytime</div>
   </div>
 </div>
 
@@ -776,16 +776,15 @@
     if (cfg.CHECKOUT_URL) {
       document.querySelectorAll('.vc-checkout-btn').forEach(function(el) {
         el.href = cfg.CHECKOUT_URL;
-        // Pro button should go direct to checkout, not through ad overlay
         el.removeAttribute('data-redirect');
       });
     }
 
-    // 4. Free plan feature list — rebuilt from admin Feature Lists tab
+    // 4. Free plan feature list
     if (cfg.FREE_FEATURES && cfg.FREE_FEATURES.length) {
       document.querySelectorAll('.vc-free-features').forEach(function(ul) {
         ul.innerHTML = cfg.FREE_FEATURES.map(function(item) {
-          var isMuted = item.startsWith('\u2717'); // ✗
+          var isMuted = item.startsWith('\u2717');
           return '<li' + (isMuted ? ' class="muted"' : '') + '>' + item.replace(/^[✓✗]\s*/, '') + '</li>';
         }).join('');
       });
@@ -800,14 +799,14 @@
       });
     }
 
-    // 6. FAQ char answer — update the text inline
+    // 6. FAQ char answer
     document.querySelectorAll('.vc-faq-char-answer').forEach(function(el) {
       el.innerHTML = 'Free users can convert up to <span class="vc-char-limit">' + charStr +
         '</span> characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.';
     });
   }
 
-  // Load config.js via jsDelivr CDN (refreshes ~30s after admin saves)
+  // Load config.js via jsDelivr CDN (~30s refresh after admin saves)
   (function() {
     var s = document.createElement('script');
     s.src = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js'
@@ -819,7 +818,12 @@
   })();
 
   // ============================================================
-  // ADSTERRA DIRECT LINK + AD OVERLAY
+  // AD OVERLAY — Fixed flow:
+  // 1. User clicks button
+  // 2. Ad opens in NEW TAB (user stays on this page)
+  // 3. Countdown runs on this page
+  // 4. When countdown ends → this page redirects to the app
+  // 5. Skip button available after 3s to go to app immediately
   // ============================================================
   var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
 
@@ -828,6 +832,7 @@
   var adProgressFill = document.getElementById('adProgressFill');
   var adSkipBtn      = document.getElementById('adSkipBtn');
   var adStatus       = document.getElementById('adStatus');
+  var adSubText      = document.getElementById('adSubText');
   var adInterval = null, adTimeout = null, skipTimeout = null;
 
   function clearAdTimers() {
@@ -836,44 +841,68 @@
     if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
   }
 
-  function startAdOverlay() {
-    var AD_DURATION = 8000, SKIP_DELAY = 5000;
-    var startTime = Date.now(), endTime = startTime + AD_DURATION;
+  function goToApp() {
+    clearAdTimers();
+    adStatus.textContent = 'Redirecting to VoxCraft...';
+    adStatus.style.color = '#a78bfa';
+    adTimerDisplay.textContent = '✓';
+    setTimeout(function() {
+      window.location.href = APP_URL;
+    }, 400);
+  }
+
+  function startAdOverlay(redirectUrl) {
+    var AD_DURATION = 8000;
+    var SKIP_DELAY  = 3000;
+    var startTime   = Date.now();
+    var endTime     = startTime + AD_DURATION;
+
+    // Show overlay — user stays on this page
     adOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
     adSkipBtn.classList.remove('visible');
-    adStatus.textContent = 'Loading advertisement...';
-    adStatus.classList.remove('redirecting');
+    adSubText.textContent = 'An ad has opened in a new tab. You\'ll be redirected to the app automatically.';
+    adStatus.textContent  = 'Ad opened in background — you can close it anytime';
+    adStatus.style.color  = '';
 
+    // Open ad in a NEW TAB — user is NOT taken away from this page
+    try {
+      window.open(ADSTERRA_DIRECT_LINK, '_blank', 'noopener');
+    } catch(e) {
+      // Popup blocked — still proceed with countdown to app
+      adSubText.textContent = 'Redirecting to the app in a moment...';
+    }
+
+    // Countdown
     adInterval = setInterval(function() {
       var now = Date.now();
       var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
       var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
       adTimerDisplay.textContent = remaining;
       adProgressFill.style.width = pct + '%';
-      if (now >= endTime) { clearInterval(adInterval); adInterval = null; }
+      if (now >= endTime) {
+        clearInterval(adInterval);
+        adInterval = null;
+      }
     }, 100);
 
+    // Show skip button after short delay
     skipTimeout = setTimeout(function() {
       adSkipBtn.classList.add('visible');
-      adStatus.textContent = 'You can skip now or wait for redirect';
     }, SKIP_DELAY);
 
+    // When countdown finishes → redirect THIS page to the app
     adTimeout = setTimeout(function() {
-      adStatus.textContent = 'Redirecting to app...';
-      adStatus.classList.add('redirecting');
-      setTimeout(function() { window.location.href = ADSTERRA_DIRECT_LINK; }, 300);
+      goToApp();
     }, AD_DURATION);
   }
 
+  // Skip button → go to app immediately
   adSkipBtn.addEventListener('click', function() {
-    clearAdTimers();
-    adStatus.textContent = 'Redirecting to app...';
-    adStatus.classList.add('redirecting');
-    setTimeout(function() { window.location.href = ADSTERRA_DIRECT_LINK; }, 300);
+    goToApp();
   });
 
-  // All buttons with .ad-trigger class show the overlay
+  // All .ad-trigger buttons
   document.querySelectorAll('.ad-trigger').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
