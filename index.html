@@ -6,42 +6,41 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>VoxCraft - Free AI Text to Speech, No Signup</title>
-  <meta name="description" content="Convert any text to natural AI voice and download as MP3 instantly. 70+ Microsoft neural voices, no account required, no watermark. Free forever.">
-  <meta name="keywords" content="free text to speech, AI voice generator, TTS MP3 download, no signup TTS, Microsoft neural voices, free voiceover, urdu text to speech">
-  <meta property="og:title" content="VoxCraft - Free AI Text to Speech">
-  <meta property="og:description" content="70+ AI voices. Instant MP3 download. No account. No watermark. Free.">
-  <meta property="og:url" content="https://voxcraft.site">
+  <title>Qalam Studio - Free Urdu AI Writer, Freelancer Toolkit & Subtitle Generator</title>
+  <meta name="description" content="Pakistan's free AI writing studio. Write Urdu content, generate freelancer proposals & invoices, create Urdu subtitles. No signup required.">
+  <meta name="keywords" content="urdu ai writer, urdu content generator, pakistan freelancer toolkit, urdu subtitle generator, free urdu writing tool, ai urdu blog writer, roman urdu writer">
+  <meta property="og:title" content="Qalam Studio - Pakistan's Free AI Writing Studio">
+  <meta property="og:description" content="Write Urdu content, generate proposals & invoices, create subtitles. Free. No signup.">
+  <meta property="og:url" content="https://qalamstudio.xyz">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://voxcraft.site/logo.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:image" content="https://qalamstudio.xyz/logo.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://voxcraft.site/logo.png">
+  <meta name="twitter:image" content="https://qalamstudio.xyz/logo.png">
   <link rel="icon" type="image/png" href="/logo.png">
-  <link rel="shortcut icon" type="image/png" href="/logo.png">
   <link rel="apple-touch-icon" href="/logo.png">
-  <link rel="canonical" href="https://voxcraft.site">
+  <link rel="canonical" href="https://qalamstudio.xyz">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Adsterra Social Bar -->
+  <script src="https://pl29723108.effectivecpmnetwork.com/97/ba/e0/97bae0f643c7340a8b5a1dbc1eba8bee.js"></script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0a0812;
-      --surface:   #120f1e;
-      --border:    rgba(255,255,255,0.07);
-      --purple:    #7c3aed;
-      --violet:    #a78bfa;
-      --blue:      #60a5fa;
-      --text:      #f1f0f5;
-      --muted:     rgba(255,255,255,0.45);
-      --faint:     rgba(255,255,255,0.08);
+      --bg:      #06080f;
+      --surface: #0d1120;
+      --border:  rgba(255,255,255,0.07);
+      --green:   #00c896;
+      --green2:  #00a37a;
+      --blue:    #3b82f6;
+      --text:    #f0f2f8;
+      --muted:   rgba(255,255,255,0.45);
+      --faint:   rgba(255,255,255,0.06);
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -51,324 +50,315 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2rem;
-      background: rgba(10,8,18,0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(6,8,15,0.92);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
       font-family: 'Syne', sans-serif;
-      font-weight: 800; font-size: 1.25rem;
-      background: linear-gradient(135deg, #fff 0%, var(--violet) 100%);
+      font-weight: 800; font-size: 1.3rem;
+      background: linear-gradient(135deg, #fff 0%, var(--green) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       text-decoration: none;
     }
     .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.9rem;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--purple);
-      color: white !important;
-      padding: 0.45rem 1.1rem;
-      border-radius: 8px;
-      font-weight: 500;
-      font-size: 0.88rem !important;
-      transition: background 0.2s !important;
-      border: none;
-      cursor: pointer;
+      background: var(--green); color: #06080f !important;
+      padding: 0.45rem 1.1rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem !important;
+      border: none; cursor: pointer;
       font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: #6d28d9 !important; }
+    .nav-cta:hover { background: var(--green2) !important; color: #06080f !important; }
 
-    /* HERO */
+    /* ── AD OVERLAY ── */
+    .ad-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(6,8,15,0.98);
+      backdrop-filter: blur(14px);
+      z-index: 99999;
+      display: none; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 1rem; overflow-y: auto;
+    }
+    .ad-overlay.active { display: flex; }
+    .ad-box {
+      background: var(--surface);
+      border: 1px solid rgba(0,200,150,0.3);
+      border-radius: 22px; padding: 1.8rem;
+      max-width: 520px; width: 100%;
+      text-align: center;
+      box-shadow: 0 0 60px rgba(0,200,150,0.12);
+    }
+    .ad-box h3 { font-family: 'Syne', sans-serif; font-size: 1.25rem; margin-bottom: 0.3rem; }
+    .ad-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+    .ad-timer-display {
+      font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--green));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1; margin-bottom: 0.3rem;
+    }
+    .ad-timer-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.05em; }
+    .ad-progress-wrap { width: 100%; height: 5px; background: var(--faint); border-radius: 3px; overflow: hidden; margin-bottom: 1.2rem; }
+    .ad-progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--blue)); border-radius: 3px; width: 0%; transition: width 0.1s linear; }
+    .ad-banner-slot { min-height: 90px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .ad-skip-btn {
+      display: none;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: #06080f; padding: 0.7rem 2rem; border-radius: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; border: none; box-shadow: 0 4px 20px rgba(0,200,150,0.25);
+      transition: all 0.2s;
+    }
+    .ad-skip-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(0,200,150,0.4); }
+    .ad-skip-btn.visible { display: inline-block; animation: fadeUp 0.3s ease both; }
+    .ad-status { margin-top: 0.8rem; font-size: 0.75rem; color: var(--muted); min-height: 1.1rem; }
+    .ad-status.go { color: var(--green); font-weight: 600; }
+    .ad-pro-note { margin-top: 0.8rem; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+    .ad-pro-note a { color: var(--green); text-decoration: none; }
+
+    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center;
       padding: 7rem 1.5rem 4rem;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      position: absolute; width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,200,150,0.1) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
       pointer-events: none;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      background: rgba(124,58,237,0.12);
-      border: 1px solid rgba(124,58,237,0.3);
-      border-radius: 100px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.8rem; color: var(--violet);
-      margin-bottom: 1.5rem;
+      background: rgba(0,200,150,0.1);
+      border: 1px solid rgba(0,200,150,0.3);
+      border-radius: 100px; padding: 0.35rem 0.9rem;
+      font-size: 0.8rem; color: var(--green); margin-bottom: 1.5rem;
       animation: fadeUp 0.6s ease both;
     }
     .hero h1 {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.2rem;
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.03em; margin-bottom: 1.2rem;
       animation: fadeUp 0.6s 0.1s ease both;
     }
     .hero h1 span {
-      background: linear-gradient(135deg, var(--violet) 0%, var(--blue) 100%);
+      background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--muted);
-      max-width: 540px;
-      margin: 0 auto 2rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted);
+      max-width: 560px; margin: 0 auto 2rem;
       animation: fadeUp 0.6s 0.2s ease both;
     }
     .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-      justify-content: center;
+      display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;
       animation: fadeUp 0.6s 0.3s ease both;
     }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white; text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 500; font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px rgba(124,58,237,0.35);
-      cursor: pointer;
-      border: none;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.45); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--faint);
-      border: 1px solid var(--border);
-      color: var(--text); text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 500; font-size: 1rem;
-      transition: background 0.2s;
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
     .hero-stats {
-      display: flex; flex-wrap: wrap; gap: 2rem;
-      justify-content: center;
-      margin-top: 3rem;
-      animation: fadeUp 0.6s 0.4s ease both;
+      display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;
+      margin-top: 3rem; animation: fadeUp 0.6s 0.4s ease both;
     }
     .stat { text-align: center; }
     .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem; font-weight: 800;
-      background: linear-gradient(135deg, #fff, var(--violet));
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--green));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
 
-    /* SECTIONS */
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: #06080f; text-decoration: none;
+      padding: 0.9rem 2rem; border-radius: 12px;
+      font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,200,150,0.3);
+      cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,200,150,0.4); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--faint); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      padding: 0.9rem 2rem; border-radius: 12px;
+      font-weight: 500; font-size: 1rem; transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── SECTIONS ── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1100px; margin: 0 auto; }
     .section-label {
-      font-size: 0.75rem; font-weight: 500;
+      font-size: 0.75rem; font-weight: 600;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--violet); margin-bottom: 0.75rem;
+      color: var(--green); margin-bottom: 0.75rem;
     }
     .section-title {
       font-family: 'Syne', sans-serif;
       font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800; line-height: 1.15;
-      margin-bottom: 1rem;
+      font-weight: 800; line-height: 1.15; margin-bottom: 1rem;
     }
     .section-sub { color: var(--muted); max-width: 540px; font-size: 1.05rem; }
 
-    /* HOW IT WORKS */
-    .steps {
+    /* ── TOOL CARDS ── */
+    .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .tool-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .tool-card:hover { border-color: rgba(0,200,150,0.3); transform: translateY(-3px); }
+    .tool-card:hover::before { opacity: 1; }
+    .tool-icon {
+      font-size: 1.8rem; margin-bottom: 1rem;
+      width: 56px; height: 56px;
+      background: rgba(0,200,150,0.1);
+      border: 1px solid rgba(0,200,150,0.2);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tool-card h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .tool-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.6; }
+    .tool-features { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .tool-features li { font-size: 0.85rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 0.5rem; }
+    .tool-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .tool-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 0.75rem; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.2s;
+      cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: #06080f;
+    }
+    .tool-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,200,150,0.3); }
+
+    /* ── STEPS ── */
+    .steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem; margin-top: 3rem;
     }
     .step {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      position: relative;
-      transition: border-color 0.2s;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 1.5rem; transition: border-color 0.2s;
     }
-    .step:hover { border-color: rgba(124,58,237,0.4); }
+    .step:hover { border-color: rgba(0,200,150,0.3); }
     .step-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem; font-weight: 800;
-      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(96,165,250,0.3));
+      font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
+      background: linear-gradient(135deg, rgba(0,200,150,0.4), rgba(59,130,246,0.4));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       line-height: 1; margin-bottom: 0.75rem;
     }
     .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
     .step p { font-size: 0.88rem; color: var(--muted); }
 
-    /* TOOLS GRID */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem; margin-top: 3rem;
-    }
-    .tool-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.4rem 1.5rem;
-      display: flex; align-items: flex-start; gap: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .tool-card:hover { border-color: rgba(124,58,237,0.35); transform: translateY(-2px); }
-    .tool-icon {
-      font-size: 1.6rem; flex-shrink: 0;
-      width: 44px; height: 44px;
-      background: rgba(124,58,237,0.1);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .tool-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .tool-card p { font-size: 0.82rem; color: var(--muted); }
+    /* ── AD BANNER ── */
+    .ad-banner-section { padding: 1.5rem; display: flex; justify-content: center; }
 
-    /* LANGUAGES */
-    .lang-section { background: var(--surface); }
-    .lang-pills {
-      display: flex; flex-wrap: wrap; gap: 0.6rem;
-      margin-top: 2rem;
-    }
-    .lang-pill {
-      background: var(--faint);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.82rem; color: var(--muted);
-      transition: all 0.2s;
-    }
-    .lang-pill:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); color: var(--violet); }
-    .lang-pill.featured { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.3); color: var(--violet); }
-
-    /* PRICING */
+    /* ── PRICING ── */
     .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem; margin-top: 3rem;
     }
     .pricing-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2rem;
     }
     .pricing-card.featured {
-      border-color: rgba(124,58,237,0.5);
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05));
+      border-color: rgba(0,200,150,0.4);
+      background: linear-gradient(135deg, rgba(0,200,150,0.06), rgba(59,130,246,0.04));
       position: relative;
     }
     .pricing-badge {
       position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white; font-size: 0.75rem; font-weight: 600;
-      padding: 0.25rem 0.9rem; border-radius: 100px;
-      white-space: nowrap;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: #06080f; font-size: 0.75rem; font-weight: 700;
+      padding: 0.25rem 0.9rem; border-radius: 100px; white-space: nowrap;
     }
     .plan-name { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
     .plan-price {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.8rem; font-weight: 800;
+      font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800;
       margin: 0.5rem 0 0.2rem;
-      background: linear-gradient(135deg, #fff, var(--violet));
+      background: linear-gradient(135deg, #fff, var(--green));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .plan-period { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
     .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; }
     .plan-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; }
-    .plan-features li::before { content: "✓"; color: var(--violet); font-weight: 700; flex-shrink: 0; }
+    .plan-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
     .plan-features li.muted::before { content: "✗"; color: rgba(255,255,255,0.2); }
     .plan-features li.muted { color: var(--muted); }
     .btn-plan {
       display: block; width: 100%; text-align: center;
       padding: 0.85rem; border-radius: 12px;
-      font-weight: 500; font-size: 0.95rem;
+      font-weight: 600; font-size: 0.95rem;
       text-decoration: none; transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-      font-family: 'DM Sans', sans-serif;
+      cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
     }
     .btn-plan-free { background: var(--faint); border: 1px solid var(--border); color: var(--text); }
     .btn-plan-free:hover { background: rgba(255,255,255,0.1); }
-    .btn-plan-pro { background: linear-gradient(135deg, var(--purple), #4f46e5); color: white; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
-    .btn-plan-pro:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.45); transform: translateY(-1px); }
-
-    /* FAQ */
-    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 720px; }
-    .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
+    .btn-plan-pro {
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      color: #06080f; box-shadow: 0 4px 20px rgba(0,200,150,0.25);
     }
+    .btn-plan-pro:hover { box-shadow: 0 6px 28px rgba(0,200,150,0.4); transform: translateY(-1px); }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 720px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
     .faq-q {
       width: 100%; background: none; border: none; cursor: pointer;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.1rem 1.4rem;
-      color: var(--text); font-size: 0.95rem; font-weight: 500;
-      font-family: 'DM Sans', sans-serif;
-      text-align: left; gap: 1rem;
+      padding: 1.1rem 1.4rem; color: var(--text); font-size: 0.95rem; font-weight: 500;
+      font-family: 'DM Sans', sans-serif; text-align: left; gap: 1rem;
     }
     .faq-q:hover { background: var(--faint); }
-    .faq-arrow { color: var(--violet); font-size: 1.1rem; transition: transform 0.2s; flex-shrink: 0; }
-    .faq-a {
-      display: none; padding: 0 1.4rem 1.1rem;
-      font-size: 0.9rem; color: var(--muted); line-height: 1.7;
-    }
+    .faq-arrow { color: var(--green); font-size: 1.1rem; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { display: none; padding: 0 1.4rem 1.1rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
-    /* CTA BANNER */
+    /* ── CTA BANNER ── */
     .cta-banner {
-      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.1) 100%);
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 24px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      margin: 0 auto;
-      max-width: 700px;
+      background: linear-gradient(135deg, rgba(0,200,150,0.1), rgba(59,130,246,0.08));
+      border: 1px solid rgba(0,200,150,0.2); border-radius: 24px;
+      padding: 3.5rem 2rem; text-align: center; margin: 0 auto; max-width: 700px;
     }
-    .cta-banner h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 800; margin-bottom: 0.75rem;
-    }
+    .cta-banner h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 0.75rem; }
     .cta-banner p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-    }
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     .footer-logo {
       font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
-      background: linear-gradient(135deg, #fff, var(--violet));
+      background: linear-gradient(135deg, #fff, var(--green));
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       display: inline-block; margin-bottom: 0.75rem;
     }
@@ -377,57 +367,7 @@
     .footer-links a:hover { color: var(--text); }
     .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
 
-    /* AD OVERLAY */
-    .ad-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(10, 8, 18, 0.98);
-      backdrop-filter: blur(12px);
-      z-index: 99999;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      overflow-y: auto;
-    }
-    .ad-overlay.active { display: flex; }
-    .ad-box {
-      background: var(--surface);
-      border: 1px solid rgba(124,58,237,0.3);
-      border-radius: 20px;
-      padding: 1.5rem;
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 0 60px rgba(124,58,237,0.15);
-    }
-    .ad-box h3 { font-family: 'Syne', sans-serif; font-size: 1.2rem; margin-bottom: 0.3rem; }
-    .ad-box .ad-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
-    .ad-timer-display {
-      font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800;
-      background: linear-gradient(135deg, #fff, var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1; margin-bottom: 0.3rem;
-    }
-    .ad-timer-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; letter-spacing: 0.05em; }
-    .ad-progress-wrap { width: 100%; height: 5px; background: var(--faint); border-radius: 3px; overflow: hidden; margin-bottom: 1rem; }
-    .ad-progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 3px; width: 0%; transition: width 0.1s linear; }
-    .ad-skip-btn {
-      display: none;
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white; padding: 0.7rem 1.8rem; border-radius: 10px;
-      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
-      cursor: pointer; transition: all 0.2s; border: none;
-      box-shadow: 0 4px 20px rgba(124,58,237,0.3);
-    }
-    .ad-skip-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(124,58,237,0.45); }
-    .ad-skip-btn.visible { display: inline-block; animation: fadeUp 0.3s ease both; }
-    .ad-status { margin-top: 0.8rem; font-size: 0.75rem; color: var(--muted); min-height: 1.1rem; }
-    .ad-status.redirecting { color: var(--violet); font-weight: 500; }
-
-    /* ANIMATIONS */
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -435,46 +375,55 @@
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* RESPONSIVE */
+    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       nav { padding: 0.9rem 1.2rem; }
       .nav-links a:not(.nav-cta) { display: none; }
       section { padding: 3.5rem 1.2rem; }
       .hero { padding: 6rem 1.2rem 3rem; }
-      .hero-stats { gap: 1.2rem; }
       .cta-banner { padding: 2.5rem 1.2rem; }
       .ad-box { padding: 1.2rem; }
       .ad-timer-display { font-size: 2rem; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
-
-  <!-- Adsterra Social Bar -->
-  <script src="https://pl29723108.effectivecpmnetwork.com/97/ba/e0/97bae0f643c7340a8b5a1dbc1eba8bee.js"></script>
 </head>
 <body>
 
-  <!-- AD OVERLAY -->
+<!-- ══ AD OVERLAY ══════════════════════════════════════════════════════════ -->
 <div class="ad-overlay" id="adOverlay">
   <div class="ad-box">
-    <h3>Taking you to VoxCraft</h3>
+    <h3>✍️ Taking you to Qalam Studio</h3>
     <p class="ad-sub" id="adSubText">An ad has opened in a new tab. You'll be redirected to the app automatically.</p>
     <div class="ad-timer-display" id="adTimerDisplay">8</div>
-    <div class="ad-timer-label">seconds until app opens</div>
+    <div class="ad-timer-label">SECONDS UNTIL APP OPENS</div>
     <div class="ad-progress-wrap">
       <div class="ad-progress-fill" id="adProgressFill"></div>
     </div>
+    <!-- Adsterra banner inside overlay -->
+    <div class="ad-banner-slot">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '5b0c617f15e7e87967b22cafcc23e1b7',
+          'format' : 'iframe',
+          'height' : 60,
+          'width' : 468,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/5b0c617f15e7e87967b22cafcc23e1b7/invoke.js"></script>
+    </div>
     <button class="ad-skip-btn" id="adSkipBtn">Go to App Now →</button>
-    <div class="ad-status" id="adStatus">Ad opened in background tab — you can close it anytime</div>
+    <div class="ad-status" id="adStatus">Ad opened in background — you can close it anytime</div>
+    <div class="ad-pro-note">Remove ads forever · <a href="https://qalamstudio.xyz/#pricing" id="adProLink">Upgrade to Pro →</a></div>
   </div>
 </div>
 
-<!-- NAV -->
+<!-- ══ NAV ════════════════════════════════════════════════════════════════ -->
 <nav>
-  <a class="nav-logo" href="/">VoxCraft</a>
+  <a class="nav-logo" href="/">QalamStudio</a>
   <div class="nav-links">
     <a href="#tools">Tools</a>
     <a href="#pricing">Pricing</a>
@@ -483,224 +432,187 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ══ HERO ═══════════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-badge">Free AI Audio Studio - No Signup Required</div>
-  <h1>Turn Text Into<br><span>Natural AI Voice</span><br>In Seconds</h1>
-  <p class="hero-sub">70+ Microsoft neural voices across 20+ languages. Download as MP3 instantly. No account. No watermark. No credit card.</p>
+  <div class="hero-badge">🖊️ Pakistan's Free AI Writing Studio</div>
+  <h1>Write in Urdu.<br><span>Work Smarter.</span><br>Get Paid Faster.</h1>
+  <p class="hero-sub">AI-powered Urdu writer, freelancer toolkit, and subtitle generator — all in one free platform. No account required.</p>
   <div class="hero-actions">
-    <button class="btn-primary ad-trigger">Try VoxCraft Free</button>
+    <button class="btn-primary ad-trigger">Start Writing Free →</button>
     <a href="#tools" class="btn-secondary">See All Tools</a>
   </div>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">70+</div>
-      <div class="stat-label">Neural Voices</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">AI Tools</div>
     </div>
     <div class="stat">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">Languages</div>
+      <div class="stat-num">مفت</div>
+      <div class="stat-label">Forever Free</div>
     </div>
     <div class="stat">
-      <div class="stat-num">9</div>
-      <div class="stat-label">Audio Tools</div>
+      <div class="stat-num">🇵🇰</div>
+      <div class="stat-label">Made for Pakistan</div>
     </div>
     <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">No Signup</div>
+      <div class="stat-num">0</div>
+      <div class="stat-label">Signup Required</div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- ══ TOOLS ══════════════════════════════════════════════════════════════ -->
+<section id="tools" style="background: var(--surface);">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">3 Powerful Tools</div>
+      <h2 class="section-title">Everything Pakistani creators<br>and freelancers need</h2>
+      <p class="section-sub">Built specifically for the Pakistani market. Urdu-first, mobile-friendly, completely free to start.</p>
+    </div>
+    <div class="tools-grid reveal">
+
+      <div class="tool-card">
+        <div class="tool-icon">✍️</div>
+        <h3>Urdu AI Writer</h3>
+        <p>Generate high-quality, natural-sounding Urdu content in seconds. Blogs, YouTube scripts, social captions, product descriptions — in authentic Pakistani Urdu.</p>
+        <ul class="tool-features">
+          <li>Blog posts & articles in Urdu</li>
+          <li>YouTube scripts with hooks & CTA</li>
+          <li>Facebook, Instagram & Twitter captions</li>
+          <li>Pure Urdu, Roman Urdu & Mixed styles</li>
+          <li>6 tones — Casual to Professional</li>
+        </ul>
+        <button class="tool-btn ad-trigger">Try Urdu Writer →</button>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">💼</div>
+        <h3>Freelancer Toolkit</h3>
+        <p>Win more clients with professional proposals, invoices, and emails. Built for Pakistani freelancers on Fiverr, Upwork, and local platforms.</p>
+        <ul class="tool-features">
+          <li>Winning proposals in English & Urdu</li>
+          <li>Professional invoice generator</li>
+          <li>Client email writer</li>
+          <li>Fiverr & Upwork optimized</li>
+          <li>Download as TXT instantly</li>
+        </ul>
+        <button class="tool-btn ad-trigger">Try Freelancer Toolkit →</button>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon">🎬</div>
+        <h3>Urdu Subtitle Generator</h3>
+        <p>Automatically generate Urdu subtitles for your YouTube videos. Paste your script or English SRT and get accurate Urdu SRT ready to download.</p>
+        <ul class="tool-features">
+          <li>Script to SRT conversion</li>
+          <li>English SRT → Urdu SRT translation</li>
+          <li>Roman Urdu subtitles supported</li>
+          <li>SRT file download (Android-compatible)</li>
+          <li>YouTube creator friendly</li>
+        </ul>
+        <button class="tool-btn ad-trigger">Try Subtitle Generator →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ═══════════════════════════════════════════════════════ -->
 <section id="how">
   <div class="container">
     <div class="reveal">
       <div class="section-label">How It Works</div>
-      <h2 class="section-title">From text to audio<br>in under 60 seconds</h2>
-      <p class="section-sub">No account creation. No waiting for confirmation emails. Just open, type, and download.</p>
+      <h2 class="section-title">From idea to output<br>in under 60 seconds</h2>
+      <p class="section-sub">No account. No setup. No waiting. Just open, type, and download.</p>
     </div>
     <div class="steps reveal">
       <div class="step">
         <div class="step-num">01</div>
-        <h3>Paste Your Text</h3>
-        <!-- vc-char: auto-updated by admin panel -->
-        <p>Type or paste up to <span class="vc-char-limit">5,000</span> characters. Supports any language including Urdu, Arabic, and Hindi.</p>
+        <h3>Choose Your Tool</h3>
+        <p>Pick from Urdu Writer, Freelancer Toolkit, or Subtitle Generator.</p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <h3>Choose a Voice</h3>
-        <p>Pick from 70+ Microsoft neural voices. Filter by language, gender, or style.</p>
+        <h3>Enter Your Details</h3>
+        <p>Type your topic, project details, or paste your script or SRT.</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <h3>Generate Speech</h3>
-        <p>Click Generate Speech. Your audio is ready in seconds.</p>
+        <h3>AI Generates</h3>
+        <p>Our AI instantly creates your Urdu content, proposal, or subtitles.</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <h3>Download MP3</h3>
-        <p>Hit Download. Use it in YouTube videos, podcasts, e-learning courses.</p>
+        <h3>Download & Use</h3>
+        <p>Copy or download as TXT or SRT and use it immediately anywhere.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TOOLS -->
-<section id="tools" style="background: var(--surface);">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">9 Audio Tools</div>
-      <h2 class="section-title">Everything you need<br>to create audio content</h2>
-      <p class="section-sub">VoxCraft is more than TTS. It is a complete free audio studio for creators.</p>
-    </div>
-    <div class="tools-grid reveal">
-      <div class="tool-card">
-        <div class="tool-icon">🎤</div>
-        <div><h3>Text to Speech</h3><p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">⚡</div>
-        <div><h3>Batch TTS</h3><p>Paste multiple lines, generate all as separate MP3s in one click.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">📝</div>
-        <div><h3>Transcription</h3><p>Convert audio files to accurate text. Supports MP3, WAV, M4A.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🔄</div>
-        <div><h3>Format Converter</h3><p>Convert between MP3, WAV, OGG, and FLAC instantly.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">➡️</div>
-        <div><h3>Audio Merger</h3><p>Combine multiple audio files into one seamless track.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">✂️</div>
-        <div><h3>Audio Cutter</h3><p>Trim audio to exact timestamps. Cut intros or silence.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎵</div>
-        <div><h3>Background Music</h3><p>Generate royalty-free algorithmic background music.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎙️</div>
-        <div><h3>Noise Remover</h3><p>Clean up background noise from voice recordings.</p></div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎭</div>
-        <div><h3>Voice Changer</h3><p>Apply robot, echo, chipmunk, or pitch-shift effects.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ══ AD BANNER ══════════════════════════════════════════════════════════ -->
+<div class="ad-banner-section">
+  <script type="text/javascript">
+    atOptions = {
+      'key' : '39e7b8dab5b7cc70522b647bb838d586',
+      'format' : 'iframe',
+      'height' : 300,
+      'width' : 160,
+      'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="https://www.highperformanceformat.com/39e7b8dab5b7cc70522b647bb838d586/invoke.js"></script>
+</div>
 
-<!-- AD BANNER -->
-<section style="padding:2rem 1.5rem">
-  <div style="display:flex;justify-content:center;align-items:center">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : '39e7b8dab5b7cc70522b647bb838d586',
-        'format' : 'iframe',
-        'height' : 300,
-        'width' : 160,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="https://www.highperformanceformat.com/39e7b8dab5b7cc70522b647bb838d586/invoke.js"></script>
-  </div>
-</section>
-
-<!-- LANGUAGES -->
-<section id="languages">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">Language Support</div>
-      <h2 class="section-title">Speak any language<br>with natural AI voices</h2>
-      <p class="section-sub">One of the few free TTS tools with genuine support for Urdu, Arabic, and Hindi.</p>
-    </div>
-    <div class="lang-pills reveal">
-      <span class="lang-pill featured">Urdu</span>
-      <span class="lang-pill featured">Hindi</span>
-      <span class="lang-pill featured">Arabic</span>
-      <span class="lang-pill featured">English (US)</span>
-      <span class="lang-pill featured">English (UK)</span>
-      <span class="lang-pill">English (AU)</span>
-      <span class="lang-pill">English (IN)</span>
-      <span class="lang-pill">Spanish</span>
-      <span class="lang-pill">French</span>
-      <span class="lang-pill">German</span>
-      <span class="lang-pill">Portuguese</span>
-      <span class="lang-pill">Japanese</span>
-      <span class="lang-pill">Korean</span>
-      <span class="lang-pill">Chinese</span>
-      <span class="lang-pill">Russian</span>
-      <span class="lang-pill">Turkish</span>
-      <span class="lang-pill">Italian</span>
-      <span class="lang-pill">Dutch</span>
-      <span class="lang-pill">Swedish</span>
-      <span class="lang-pill">Polish</span>
-      <span class="lang-pill">+ more</span>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
+<!-- ══ PRICING ════════════════════════════════════════════════════════════ -->
 <section id="pricing" style="background: var(--surface);">
   <div class="container">
     <div class="reveal" style="text-align:center">
       <div class="section-label">Pricing</div>
       <h2 class="section-title">Simple, honest pricing</h2>
-      <p class="section-sub" style="margin:0 auto">No trial periods. No hidden fees. The free plan is genuinely free.</p>
+      <p class="section-sub" style="margin:0 auto">Start free. Upgrade when you need more.</p>
     </div>
     <div class="pricing-grid reveal">
 
-      <!-- FREE CARD -->
       <div class="pricing-card">
         <div class="plan-name">Free</div>
-        <!-- vc-free-price: updated by admin -->
-        <div class="plan-price vc-free-price">$0</div>
-        <div class="plan-period">forever - no credit card needed</div>
-        <!-- vc-free-features: entire list rebuilt by admin -->
-        <ul class="plan-features vc-free-features">
-          <li><span class="vc-char-limit">5,000</span> characters per month</li>
-          <li>All 70+ voices</li>
-          <li>All 9 audio tools</li>
-          <li>MP3 download - no watermark</li>
+        <div class="plan-price qs-free-price">مفت</div>
+        <div class="plan-period">forever — no credit card needed</div>
+        <ul class="plan-features qs-free-features">
+          <li>All 3 tools</li>
+          <li>20 actions per day</li>
+          <li>Urdu, Roman Urdu & Mixed styles</li>
+          <li>TXT & SRT download</li>
           <li>No account required</li>
           <li class="muted">Ads shown</li>
-          <li class="muted">Monthly char limit</li>
+          <li class="muted">Daily action limit</li>
         </ul>
         <button class="btn-plan btn-plan-free ad-trigger">Start Free</button>
       </div>
 
-      <!-- PRO CARD -->
       <div class="pricing-card featured">
         <div class="pricing-badge">Most Popular</div>
-        <div class="plan-name">Pro</div>
-        <!-- vc-pro-price: updated by admin -->
-        <div class="plan-price vc-pro-price">840 PKR</div>
-        <div class="plan-period">per month - cancel anytime</div>
-        <!-- vc-pro-features: entire list rebuilt by admin -->
-        <ul class="plan-features vc-pro-features">
-          <li>Unlimited characters</li>
-          <li>All 70+ voices</li>
-          <li>All 9 audio tools</li>
-          <li>MP3 download - no watermark</li>
-          <li>No account required</li>
-          <li>No ads</li>
+        <div class="plan-name">Studio Pro</div>
+        <div class="plan-price qs-pro-price">499 PKR</div>
+        <div class="plan-period">per month — cancel anytime</div>
+        <ul class="plan-features qs-pro-features">
+          <li>All tools — unlimited</li>
+          <li>Unlimited daily actions</li>
+          <li>No ads — ever</li>
+          <li>Priority AI generation</li>
+          <li>All language styles unlocked</li>
+          <li>Batch subtitle translation</li>
           <li>Priority support</li>
         </ul>
-        <!-- vc-checkout-btn: href updated by admin -->
-        <a class="btn-plan btn-plan-pro vc-checkout-btn" href="https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d" target="_blank">Upgrade to Pro</a>
+        <a class="btn-plan btn-plan-pro qs-checkout-btn" href="https://qalamstudio.xyz" target="_blank">Upgrade to Pro →</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- ══ FAQ ════════════════════════════════════════════════════════════════ -->
 <section id="faq">
   <div class="container">
     <div class="reveal">
@@ -709,298 +621,260 @@
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
-        <button class="faq-q">Is VoxCraft really free? <span class="faq-arrow">▾</span></button>
-        <!-- vc-faq-free-chars: char limit in FAQ answer updated by admin -->
-        <div class="faq-a">Yes. The core text-to-speech tool with MP3 download is completely free with no signup required. Free users get <span class="vc-char-limit">5,000</span> characters per month across all tools with no watermark on the audio.</div>
+        <button class="faq-q">Is Qalam Studio really free? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Yes. All 3 tools are free with no signup required. Free users get <span class="qs-free-actions">20</span> actions per day with no watermark on downloads.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Can I use the audio for YouTube videos? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">Yes. Audio generated by VoxCraft can be used for personal and commercial projects including YouTube videos, podcasts, e-learning courses, and social media content.</div>
+        <button class="faq-q">Does the Urdu writing sound natural? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Yes — that's our main focus. Qalam Studio is specifically prompted to write like a real educated Pakistani, not translated or robotic Urdu. It avoids heavy Arabic/Farsi words and uses common everyday Pakistani expressions.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">What voices are available? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">VoxCraft uses Microsoft Edge neural voices - over 70 options across 20+ languages including English, Urdu, Hindi, Arabic, Spanish, French, German, Japanese, Korean, Chinese, and many more.</div>
+        <button class="faq-q">Can I use it for YouTube videos? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Absolutely. The Urdu Writer generates full YouTube scripts with hooks, sections, and CTAs. The Subtitle Generator creates SRT files you can directly upload to YouTube Studio.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">What is the character limit? <span class="faq-arrow">▾</span></button>
-        <!-- vc-faq-char-answer: full answer updated by admin -->
-        <div class="faq-a vc-faq-char-answer">Free users can convert up to <span class="vc-char-limit">5,000</span> characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.</div>
+        <button class="faq-q">Is the Freelancer Toolkit good for Fiverr sellers? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">Yes — it's built specifically for Pakistani freelancers on Fiverr and Upwork. Generate professional proposals in English or Urdu that win more orders, plus invoices and client emails.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Do I need to create an account? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">No. VoxCraft works without any account or signup. Open the app, paste your text, choose a voice, and download. The Pro plan uses a license key system - no username or password needed.</div>
+        <button class="faq-q">Do I need an account? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">No. Qalam Studio works without any account or signup. Just open the app and start writing. Pro plan uses a license key — no username or password needed.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Does it support Urdu text to speech? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">Yes. VoxCraft has full Urdu support with natural-sounding Microsoft neural voices. It supports proper Urdu script and handles Urdu-specific sounds accurately.</div>
+        <button class="faq-q">What subtitle file formats are supported? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">The subtitle generator outputs SRT files which work with YouTube, Facebook, TikTok, Instagram, CapCut, and DaVinci Resolve. Downloads are Android-compatible and save directly instead of opening in browser.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">What audio formats are supported? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a">TTS output is downloaded as MP3. The format converter tool supports converting between MP3, WAV, OGG, and FLAC. The transcription and other tools accept MP3, WAV, M4A, OGG, and FLAC as input.</div>
+        <button class="faq-q">What languages does the AI writer support? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a">The AI writer supports Pure Urdu script, Roman Urdu, and Mixed Urdu-English — the three main ways Pakistanis write. Subtitle translator supports English, Urdu, Hindi, Arabic, and Roman Urdu.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ══ CTA ════════════════════════════════════════════════════════════════ -->
+<section>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Start writing in Urdu today</h2>
+      <p>Free forever. No signup. No credit card. Just open and write.</p>
+      <button class="btn-primary ad-trigger">Launch Qalam Studio →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">VoxCraft</div>
+    <div class="footer-logo">QalamStudio</div>
     <div class="footer-links">
-      <a href="https://app.voxcraft.site" target="_blank" class="vc-app-link">Launch App</a>
-      <a href="https://app.voxcraft.site/?page=blog" target="_blank">Blog</a>
-      <a href="https://app.voxcraft.site/?page=privacy" target="_blank">Privacy Policy</a>
-      <a href="https://app.voxcraft.site/?page=terms" target="_blank">Terms of Service</a>
-      <a href="mailto:support@voxcraft.site">support@voxcraft.site</a>
+      <a href="#" class="qs-app-link">Launch App</a>
+      <a href="https://app.qalamstudio.xyz/?page=blog" target="_blank">Blog</a>
+      <a href="https://app.qalamstudio.xyz/?page=about" target="_blank">About</a>
+      <a href="https://app.qalamstudio.xyz/?page=privacy" target="_blank">Privacy Policy</a>
+      <a href="https://app.qalamstudio.xyz/?page=terms" target="_blank">Terms of Service</a>
+      <a href="https://app.qalamstudio.xyz/?page=contact" target="_blank">Contact</a>
+      <a href="mailto:support@qalamstudio.xyz">support@qalamstudio.xyz</a>
     </div>
-    <div class="footer-copy">2026 VoxCraft Studio. Built with love on mobile.</div>
+    <div class="footer-copy">© 2026 Qalam Studio · Built with ❤️ in Pakistan 🇵🇰</div>
   </div>
 </footer>
 
 <script>
-  // ============================================================
-  // GLOBAL VARIABLES — defined first so all functions can access
-  // ============================================================
-  var APP_URL = 'https://app.voxcraft.site';
-  var ADSTERRA_DIRECT_LINK = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
+// ════════════════════════════════════════════════════════════════
+// CONFIG
+// ════════════════════════════════════════════════════════════════
+var APP_URL            = 'https://app.qalamstudio.xyz';
+var ADSTERRA_LINK      = 'https://www.effectivecpmnetwork.com/y29b51ygf?key=6d81ae914eae0a29f481ed4a8117e686';
+var AD_DURATION_MS     = 8000;
+var AD_SKIP_DELAY_MS   = 3000;
 
-  var adOverlay      = null;
-  var adTimerDisplay = null;
-  var adProgressFill = null;
-  var adSkipBtn      = null;
-  var adStatus       = null;
-  var adSubText      = null;
-  var adInterval = null, adTimeout = null, skipTimeout = null;
+// ════════════════════════════════════════════════════════════════
+// DOM REFS (set after DOMContentLoaded)
+// ════════════════════════════════════════════════════════════════
+var adOverlay, adTimerDisplay, adProgressFill, adSkipBtn, adStatus, adSubText;
+var adInterval = null, adTimeout = null, skipTimeout = null;
 
-  // Init DOM refs after page loads
-  document.addEventListener('DOMContentLoaded', function() {
-    adOverlay      = document.getElementById('adOverlay');
-    adTimerDisplay = document.getElementById('adTimerDisplay');
-    adProgressFill = document.getElementById('adProgressFill');
-    adSkipBtn      = document.getElementById('adSkipBtn');
-    adStatus       = document.getElementById('adStatus');
-    adSubText      = document.getElementById('adSubText');
+// ════════════════════════════════════════════════════════════════
+// AD OVERLAY LOGIC
+// ════════════════════════════════════════════════════════════════
+function clearAdTimers() {
+  if (adInterval)  { clearInterval(adInterval);  adInterval  = null; }
+  if (adTimeout)   { clearTimeout(adTimeout);    adTimeout   = null; }
+  if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
+}
 
-    // Skip button
-    if (adSkipBtn) {
-      adSkipBtn.addEventListener('click', function() { goToApp(); });
-    }
+function goToApp() {
+  clearAdTimers();
+  if (adStatus)       { adStatus.textContent = 'Redirecting to Qalam Studio...'; adStatus.classList.add('go'); }
+  if (adTimerDisplay) { adTimerDisplay.textContent = '✓'; }
+  setTimeout(function() { window.location.href = APP_URL; }, 400);
+}
 
-    // All .ad-trigger buttons
-    document.querySelectorAll('.ad-trigger').forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        startAdOverlay();
-      });
+function startAdOverlay() {
+  // If already shown this session — go direct
+  if (sessionStorage.getItem('qs_ad_shown')) {
+    window.location.href = APP_URL;
+    return;
+  }
+
+  var startTime = Date.now();
+  var endTime   = startTime + AD_DURATION_MS;
+
+  adOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (adSkipBtn)  adSkipBtn.classList.remove('visible');
+  if (adStatus)   { adStatus.textContent = 'Ad opened in background — you can close it anytime'; adStatus.classList.remove('go'); }
+  if (adSubText)  adSubText.textContent  = "An ad has opened in a new tab. You'll be redirected to the app automatically.";
+  if (adTimerDisplay) adTimerDisplay.textContent = Math.ceil(AD_DURATION_MS / 1000);
+  if (adProgressFill) adProgressFill.style.width = '0%';
+
+  // Mark shown for session
+  sessionStorage.setItem('qs_ad_shown', '1');
+
+  // Open ad popunder
+  try { window.open(ADSTERRA_LINK, '_blank', 'noopener'); }
+  catch(e) { if (adSubText) adSubText.textContent = 'Redirecting to the app in a moment...'; }
+
+  // Countdown ticker
+  adInterval = setInterval(function() {
+    var now       = Date.now();
+    var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
+    var pct       = Math.min(100, ((now - startTime) / AD_DURATION_MS) * 100);
+    if (adTimerDisplay) adTimerDisplay.textContent = remaining;
+    if (adProgressFill) adProgressFill.style.width = pct + '%';
+    if (now >= endTime) { clearInterval(adInterval); adInterval = null; }
+  }, 100);
+
+  // Show skip button
+  skipTimeout = setTimeout(function() {
+    if (adSkipBtn) adSkipBtn.classList.add('visible');
+  }, AD_SKIP_DELAY_MS);
+
+  // Auto redirect
+  adTimeout = setTimeout(function() { goToApp(); }, AD_DURATION_MS);
+}
+
+// ════════════════════════════════════════════════════════════════
+// CONFIG LOADER (syncs pricing/limits from GitHub)
+// ════════════════════════════════════════════════════════════════
+function applyConfig(cfg) {
+  if (!cfg) return;
+
+  // Free price label
+  if (cfg.FREE_PRICE_LABEL) {
+    document.querySelectorAll('.qs-free-price').forEach(function(el) {
+      el.textContent = cfg.FREE_PRICE_LABEL;
     });
-
-    // Footer Launch App link
-    document.querySelectorAll('.vc-app-link').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        startAdOverlay();
-      });
+  }
+  // Pro price label
+  if (cfg.PRO_PRICE_LABEL) {
+    document.querySelectorAll('.qs-pro-price').forEach(function(el) {
+      el.textContent = cfg.PRO_PRICE_LABEL;
     });
+  }
+  // Checkout URL
+  if (cfg.CHECKOUT_URL) {
+    document.querySelectorAll('.qs-checkout-btn').forEach(function(el) {
+      el.href = cfg.CHECKOUT_URL;
+    });
+    var adProLink = document.getElementById('adProLink');
+    if (adProLink) adProLink.href = cfg.CHECKOUT_URL;
+  }
+  // Free daily actions
+  if (cfg.FREE_DAILY_ACTIONS) {
+    document.querySelectorAll('.qs-free-actions').forEach(function(el) {
+      el.textContent = cfg.FREE_DAILY_ACTIONS;
+    });
+  }
+  // Free feature list
+  if (cfg.FREE_FEATURES) {
+    var feats = typeof cfg.FREE_FEATURES === 'string' ? cfg.FREE_FEATURES.split('|') : cfg.FREE_FEATURES;
+    document.querySelectorAll('.qs-free-features').forEach(function(ul) {
+      ul.innerHTML = feats.map(function(f) {
+        var isMuted = f.trim().startsWith('✗');
+        return '<li' + (isMuted ? ' class="muted"' : '') + '>' + f.trim().replace(/^[✓✗]\s*/, '') + '</li>';
+      }).join('');
+    });
+  }
+  // Pro feature list
+  if (cfg.PRO_FEATURES) {
+    var pfeats = typeof cfg.PRO_FEATURES === 'string' ? cfg.PRO_FEATURES.split('|') : cfg.PRO_FEATURES;
+    document.querySelectorAll('.qs-pro-features').forEach(function(ul) {
+      ul.innerHTML = pfeats.map(function(f) {
+        return '<li>' + f.trim().replace(/^[✓✗]\s*/, '') + '</li>';
+      }).join('');
+    });
+  }
+}
 
-    // Scroll reveal
-    var reveals = document.querySelectorAll('.reveal');
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    reveals.forEach(function(el) { obs.observe(el); });
+function loadConfig() {
+  // Tries to load limits.json from GitHub API (same repo the app uses)
+  var urls = [
+    'https://raw.githubusercontent.com/faisalchaudhary411/qalamstudio/main/limits.json?v=' + Date.now(),
+    'https://cdn.jsdelivr.net/gh/faisalchaudhary411/qalamstudio@main/limits.json?v=' + Date.now()
+  ];
+  var tried = 0;
+  function tryNext() {
+    if (tried >= urls.length) return;
+    var url = urls[tried++];
+    fetch(url, { cache: 'no-store' })
+      .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(cfg) { applyConfig(cfg); })
+      .catch(function() { tryNext(); });
+  }
+  tryNext();
+}
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-q').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.parentElement;
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!isOpen) item.classList.add('open');
-      });
+// ════════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  // DOM refs
+  adOverlay      = document.getElementById('adOverlay');
+  adTimerDisplay = document.getElementById('adTimerDisplay');
+  adProgressFill = document.getElementById('adProgressFill');
+  adSkipBtn      = document.getElementById('adSkipBtn');
+  adStatus       = document.getElementById('adStatus');
+  adSubText      = document.getElementById('adSubText');
+
+  // Skip button
+  if (adSkipBtn) adSkipBtn.addEventListener('click', function() { goToApp(); });
+
+  // All ad-trigger buttons
+  document.querySelectorAll('.ad-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); e.stopPropagation();
+      startAdOverlay();
     });
   });
 
-  // ============================================================
-  // AD OVERLAY FUNCTIONS
-  // ============================================================
-  function clearAdTimers() {
-    if (adInterval)  { clearInterval(adInterval);  adInterval  = null; }
-    if (adTimeout)   { clearTimeout(adTimeout);    adTimeout   = null; }
-    if (skipTimeout) { clearTimeout(skipTimeout);  skipTimeout = null; }
-  }
-
-  function goToApp() {
-    clearAdTimers();
-    if (adStatus)       { adStatus.textContent = 'Redirecting to VoxCraft...'; adStatus.style.color = '#a78bfa'; }
-    if (adTimerDisplay) { adTimerDisplay.textContent = '✓'; }
-    setTimeout(function() { window.location.href = APP_URL; }, 400);
-  }
-
-  function startAdOverlay() {
-    // Check if ad already shown this session — go direct to app
-    if (sessionStorage.getItem('vc_ad_shown')) {
-      window.location.href = APP_URL;
-      return;
-    }
-
-    var AD_DURATION = 8000;
-    var SKIP_DELAY  = 3000;
-    var startTime   = Date.now();
-    var endTime     = startTime + AD_DURATION;
-
-    adOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (adSkipBtn)  adSkipBtn.classList.remove('visible');
-    if (adSubText)  adSubText.textContent = "An ad has opened in a new tab. You'll be redirected to the app automatically.";
-    if (adStatus)   { adStatus.textContent = 'Ad opened in background — you can close it anytime'; adStatus.style.color = ''; }
-
-    // Mark ad as shown for this session
-    sessionStorage.setItem('vc_ad_shown', '1');
-
-    // Open ad in new tab
-    try { window.open(ADSTERRA_DIRECT_LINK, '_blank', 'noopener'); }
-    catch(e) { if (adSubText) adSubText.textContent = 'Redirecting to the app in a moment...'; }
-
-    // Countdown
-    adInterval = setInterval(function() {
-      var now = Date.now();
-      var remaining = Math.max(0, Math.ceil((endTime - now) / 1000));
-      var pct = Math.min(100, ((now - startTime) / AD_DURATION) * 100);
-      if (adTimerDisplay) adTimerDisplay.textContent = remaining;
-      if (adProgressFill) adProgressFill.style.width = pct + '%';
-      if (now >= endTime) { clearInterval(adInterval); adInterval = null; }
-    }, 100);
-
-    // Show skip button after 3s
-    skipTimeout = setTimeout(function() {
-      if (adSkipBtn) adSkipBtn.classList.add('visible');
-    }, SKIP_DELAY);
-
-    // Redirect to app after countdown
-    adTimeout = setTimeout(function() { goToApp(); }, AD_DURATION);
-  }
-
-  // ============================================================
-  // VOXCRAFT CONFIG LOADER
-  // ============================================================
-
-  function applyVoxCraftConfig(cfg) {
-    // 1. Prices
-    document.querySelectorAll('.vc-free-price').forEach(function(el) {
-      el.textContent = cfg.FREE_PRICE_LABEL || '$0';
+  // Footer Launch App link
+  document.querySelectorAll('.qs-app-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); startAdOverlay();
     });
-    document.querySelectorAll('.vc-pro-price').forEach(function(el) {
-      el.textContent = cfg.PRO_PRICE_LABEL || '840 PKR';
+  });
+
+  // Scroll reveal
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
     });
+  });
 
-    // 2. Char limit — every .vc-char-limit span on the page
-    var charStr = (cfg.FREE_CHAR_LIMIT || 5000).toLocaleString();
-    document.querySelectorAll('.vc-char-limit').forEach(function(el) {
-      el.textContent = charStr;
-    });
-
-    // 3. Checkout URL — Pro upgrade button
-    if (cfg.CHECKOUT_URL) {
-      document.querySelectorAll('.vc-checkout-btn').forEach(function(el) {
-        el.href = cfg.CHECKOUT_URL;
-        el.removeAttribute('data-redirect');
-      });
-    }
-
-    // 4. Free plan feature list
-    if (cfg.FREE_FEATURES && cfg.FREE_FEATURES.length) {
-      document.querySelectorAll('.vc-free-features').forEach(function(ul) {
-        ul.innerHTML = cfg.FREE_FEATURES.map(function(item) {
-          var isMuted = item.startsWith('\u2717');
-          return '<li' + (isMuted ? ' class="muted"' : '') + '>' + item.replace(/^[✓✗]\s*/, '') + '</li>';
-        }).join('');
-      });
-    }
-
-    // 5. Pro plan feature list
-    if (cfg.PRO_FEATURES && cfg.PRO_FEATURES.length) {
-      document.querySelectorAll('.vc-pro-features').forEach(function(ul) {
-        ul.innerHTML = cfg.PRO_FEATURES.map(function(item) {
-          return '<li>' + item.replace(/^[✓✗]\s*/, '') + '</li>';
-        }).join('');
-      });
-    }
-
-    // 6. FAQ char answer
-    document.querySelectorAll('.vc-faq-char-answer').forEach(function(el) {
-      el.innerHTML = 'Free users can convert up to <span class="vc-char-limit">' + charStr +
-        '</span> characters per month. This is enough for roughly 3-4 minutes of spoken audio. Pro users get unlimited characters with no monthly cap.';
-    });
-  }
-
-  // ============================================================
-  // CONFIG LOADER — loads from GitHub Pages config.js
-  // Uses multiple strategies to ensure values always apply
-  // ============================================================
-  (function() {
-    // Strategy 1: Direct script tag with jsDelivr (most reliable for GitHub Pages)
-    function tryScriptTag(url, onSuccess, onFail) {
-      var s = document.createElement('script');
-      s.src = url;
-      s.async = true;
-      s.onload = function() {
-        if (window.VoxCraftConfig) {
-          applyVoxCraftConfig(window.VoxCraftConfig);
-          onSuccess && onSuccess();
-        } else {
-          onFail && onFail();
-        }
-      };
-      s.onerror = function() { onFail && onFail(); };
-      document.body.appendChild(s);
-    }
-
-    // Strategy 2: fetch() with no-cache
-    function tryFetch(url, onSuccess, onFail) {
-      fetch(url, { cache: 'no-store', mode: 'cors' })
-        .then(function(r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(function(code) {
-          try {
-            (new Function(code))();
-            if (window.VoxCraftConfig) {
-              applyVoxCraftConfig(window.VoxCraftConfig);
-              onSuccess && onSuccess();
-            } else {
-              onFail && onFail();
-            }
-          } catch(e) { onFail && onFail(); }
-        })
-        .catch(function() { onFail && onFail(); });
-    }
-
-    var base = 'https://faisalchaudhary411.github.io/config.js?v=' + Date.now();
-    var cdn1 = 'https://cdn.jsdelivr.net/gh/faisalchaudhary411/faisalchaudhary411.github.io@main/config.js?v=' + Date.now();
-    var cdn2 = 'https://cdn.statically.io/gh/faisalchaudhary411/faisalchaudhary411.github.io/main/config.js?v=' + Date.now();
-
-    // Try in order: direct GitHub Pages URL → jsDelivr → statically → fetch jsDelivr
-    function run() {
-      tryScriptTag(base, null, function() {
-        tryScriptTag(cdn1, null, function() {
-          tryScriptTag(cdn2, null, function() {
-            tryFetch(cdn1, null, function() {
-              tryFetch(cdn2, null, null);
-            });
-          });
-        });
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', run);
-    } else {
-      run();
-    }
-  })();
-
+  // Load live config from GitHub
+  loadConfig();
+});
 </script>
 
 </body>
