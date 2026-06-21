@@ -1,0 +1,14 @@
+{
+  "FREE_CHAR_LIMIT": 8000,
+  "FREE_DAILY_ACTIONS": 10,
+  "FREE_BATCH_LIMIT": 5,
+  "FREE_PREVIEW_LIMIT": 5,
+  "PRO_PRICE_PKR": 840,
+  "PRO_PRICE_LABEL": "840 PKR",
+  "FREE_PRICE_LABEL": "$0",
+  "PRO_BATCH_MAX": 20,
+  "FREE_VOICES_COUNT": 20,
+  "CHECKOUT_URL": "https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d",
+  "FREE_FEATURES": "\u2713 All 9 audio tools|\u2713 20 neural voices|\u2713 8,000 chars/month|\u2713 10 actions/day|\u2717 Ads on generate|\u2717 5 batch lines max",
+  "PRO_FEATURES": "\u2713 All 9 tools unlimited|\u2713 All 70+ neural voices|\u2713 Unlimited characters|\u2713 Unlimited actions/day|\u2713 Zero ads|\u2713 Instant generation|\u2713 20 batch lines"
+}
