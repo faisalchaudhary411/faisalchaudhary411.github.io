@@ -3,388 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VoxCraft — Free AI Text to Speech, No Signup</title>
-  <meta name="description" content="Convert any text to natural AI voice and download as MP3 instantly. 70+ Microsoft neural voices, no account required, no watermark. Free forever.">
-  <meta name="keywords" content="free text to speech, AI voice generator, TTS MP3 download, no signup TTS, Microsoft neural voices, free voiceover, urdu text to speech">
+  <title>VoxCraft — Free AI Text to Speech | 70+ Voices, No Signup</title>
+  <meta name="description" content="Convert any text to natural AI voice and download as MP3 instantly. 70+ Microsoft neural voices, 20+ languages. No account required, no watermark. Free forever.">
+  <meta name="keywords" content="free text to speech, AI voice generator, TTS MP3 download, no signup TTS, Microsoft neural voices, free voiceover, urdu text to speech, hindi text to speech, arabic text to speech">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="VoxCraft Studio">
+
   <meta property="og:title" content="VoxCraft — Free AI Text to Speech">
   <meta property="og:description" content="70+ AI voices. Instant MP3 download. No account. No watermark. Free.">
   <meta property="og:url" content="https://voxcraft.site">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://voxcraft.site/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VoxCraft — Free AI Text to Speech">
+  <meta name="twitter:description" content="70+ AI voices. Instant MP3 download. No account. No watermark. Free.">
+
   <link rel="canonical" href="https://voxcraft.site">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "VoxCraft Studio",
+    "description": "Free AI text-to-speech with 70+ Microsoft neural voices. No signup required.",
+    "url": "https://voxcraft.site",
+    "applicationCategory": "AudioApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": "Text to Speech, Batch TTS, Transcription, Format Converter, Audio Merger, Audio Cutter, Background Music, Noise Remover, Voice Changer"
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg:        #0a0812;
-      --surface:   #120f1e;
-      --border:    rgba(255,255,255,0.07);
-      --purple:    #7c3aed;
-      --violet:    #a78bfa;
-      --blue:      #60a5fa;
-      --text:      #f1f0f5;
-      --muted:     rgba(255,255,255,0.45);
-      --faint:     rgba(255,255,255,0.08);
+      --bg: #0a0812; --surface: #120f1e; --border: rgba(255,255,255,0.07);
+      --purple: #7c3aed; --violet: #a78bfa; --blue: #60a5fa;
+      --text: #f1f0f5; --muted: rgba(255,255,255,0.45); --faint: rgba(255,255,255,0.08);
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(10,8,18,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800; font-size: 1.25rem;
-      background: linear-gradient(135deg, #fff 0%, var(--violet) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      text-decoration: none;
-    }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(10,8,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; background: linear-gradient(135deg, #fff 0%, var(--violet) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
     .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.9rem;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-cta {
-      background: var(--purple);
-      color: white !important;
-      padding: 0.45rem 1.1rem;
-      border-radius: 8px;
-      font-weight: 500;
-      font-size: 0.88rem !important;
-      transition: background 0.2s !important;
-    }
+    .nav-cta { background: var(--purple); color: white !important; padding: 0.45rem 1.1rem; border-radius: 8px; font-weight: 500; font-size: 0.88rem !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: #6d28d9 !important; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 7rem 1.5rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: rgba(124,58,237,0.12);
-      border: 1px solid rgba(124,58,237,0.3);
-      border-radius: 100px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.8rem; color: var(--violet);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.2rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--violet) 0%, var(--blue) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--muted);
-      max-width: 540px;
-      margin: 0 auto 2rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 0.75rem;
-      justify-content: center;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white; text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 500; font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 24px rgba(124,58,237,0.35);
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 1.5rem 4rem; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); border-radius: 100px; padding: 0.35rem 0.9rem; font-size: 0.8rem; color: var(--violet); margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 7vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.2rem; animation: fadeUp 0.6s 0.1s ease both; }
+    .hero h1 span { background: linear-gradient(135deg, var(--violet) 0%, var(--blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-sub { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); max-width: 540px; margin: 0 auto 2rem; animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; animation: fadeUp 0.6s 0.3s ease both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--purple), #4f46e5); color: white; text-decoration: none; padding: 0.85rem 2rem; border-radius: 12px; font-weight: 500; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 24px rgba(124,58,237,0.35); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,58,237,0.45); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--faint);
-      border: 1px solid var(--border);
-      color: var(--text); text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 12px;
-      font-weight: 500; font-size: 1rem;
-      transition: background 0.2s;
-    }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--faint); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 0.85rem 2rem; border-radius: 12px; font-weight: 500; font-size: 1rem; transition: background 0.2s; }
     .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-    .hero-stats {
-      display: flex; flex-wrap: wrap; gap: 2rem;
-      justify-content: center;
-      margin-top: 3rem;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 3rem; animation: fadeUp 0.6s 0.4s ease both; }
     .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem; font-weight: 800;
-      background: linear-gradient(135deg, #fff, var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, #fff, var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
-
-    /* ── WAVE DIVIDER ── */
-    .wave { width: 100%; overflow: hidden; line-height: 0; }
-    .wave svg { display: block; }
-
-    /* ── SECTIONS ── */
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--violet); margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800; line-height: 1.15;
-      margin-bottom: 1rem;
-    }
+    .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
     .section-sub { color: var(--muted); max-width: 540px; font-size: 1.05rem; }
-
-    /* ── HOW IT WORKS ── */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .step {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      position: relative;
-      transition: border-color 0.2s;
-    }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; position: relative; transition: border-color 0.2s; }
     .step:hover { border-color: rgba(124,58,237,0.4); }
-    .step-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.5rem; font-weight: 800;
-      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(96,165,250,0.3));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1; margin-bottom: 0.75rem;
-    }
+    .step-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(96,165,250,0.3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; margin-bottom: 0.75rem; }
     .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
     .step p { font-size: 0.88rem; color: var(--muted); }
-
-    /* ── TOOLS GRID ── */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem; margin-top: 3rem;
-    }
-    .tool-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.4rem 1.5rem;
-      display: flex; align-items: flex-start; gap: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: border-color 0.2s, transform 0.2s; }
     .tool-card:hover { border-color: rgba(124,58,237,0.35); transform: translateY(-2px); }
-    .tool-icon {
-      font-size: 1.6rem; flex-shrink: 0;
-      width: 44px; height: 44px;
-      background: rgba(124,58,237,0.1);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .tool-icon { font-size: 1.6rem; flex-shrink: 0; width: 44px; height: 44px; background: rgba(124,58,237,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
     .tool-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
     .tool-card p { font-size: 0.82rem; color: var(--muted); }
-
-    /* ── LANGUAGES ── */
-    .lang-section { background: var(--surface); }
-    .lang-pills {
-      display: flex; flex-wrap: wrap; gap: 0.6rem;
-      margin-top: 2rem;
-    }
-    .lang-pill {
-      background: var(--faint);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.82rem; color: var(--muted);
-      transition: all 0.2s;
-    }
+    .lang-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+    .lang-pill { background: var(--faint); border: 1px solid var(--border); border-radius: 100px; padding: 0.35rem 0.9rem; font-size: 0.82rem; color: var(--muted); transition: all 0.2s; }
     .lang-pill:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); color: var(--violet); }
     .lang-pill.featured { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.3); color: var(--violet); }
-
-    /* ── PRICING ── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .pricing-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2rem;
-    }
-    .pricing-card.featured {
-      border-color: rgba(124,58,237,0.5);
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05));
-      position: relative;
-    }
-    .pricing-badge {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--purple), #4f46e5);
-      color: white; font-size: 0.75rem; font-weight: 600;
-      padding: 0.25rem 0.9rem; border-radius: 100px;
-      white-space: nowrap;
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .pricing-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; }
+    .pricing-card.featured { border-color: rgba(124,58,237,0.5); background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(79,70,229,0.05)); position: relative; }
+    .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--purple), #4f46e5); color: white; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.9rem; border-radius: 100px; white-space: nowrap; }
     .plan-name { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
-    .plan-price {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.8rem; font-weight: 800;
-      margin: 0.5rem 0 0.2rem;
-      background: linear-gradient(135deg, #fff, var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
+    .plan-price { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; margin: 0.5rem 0 0.2rem; background: linear-gradient(135deg, #fff, var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .plan-period { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
     .plan-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.8rem; }
     .plan-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; }
     .plan-features li::before { content: "✓"; color: var(--violet); font-weight: 700; flex-shrink: 0; }
     .plan-features li.muted::before { content: "✗"; color: rgba(255,255,255,0.2); }
     .plan-features li.muted { color: var(--muted); }
-    .btn-plan {
-      display: block; width: 100%; text-align: center;
-      padding: 0.85rem; border-radius: 12px;
-      font-weight: 500; font-size: 0.95rem;
-      text-decoration: none; transition: all 0.2s;
-    }
+    .btn-plan { display: block; width: 100%; text-align: center; padding: 0.85rem; border-radius: 12px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
     .btn-plan-free { background: var(--faint); border: 1px solid var(--border); color: var(--text); }
     .btn-plan-free:hover { background: rgba(255,255,255,0.1); }
     .btn-plan-pro { background: linear-gradient(135deg, var(--purple), #4f46e5); color: white; box-shadow: 0 4px 20px rgba(124,58,237,0.3); }
     .btn-plan-pro:hover { box-shadow: 0 6px 28px rgba(124,58,237,0.45); transform: translateY(-1px); }
-
-    /* ── FAQ ── */
     .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 720px; }
-    .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-    .faq-q {
-      width: 100%; background: none; border: none; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.1rem 1.4rem;
-      color: var(--text); font-size: 0.95rem; font-weight: 500;
-      font-family: 'DM Sans', sans-serif;
-      text-align: left; gap: 1rem;
-    }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.4rem; color: var(--text); font-size: 0.95rem; font-weight: 500; font-family: 'DM Sans', sans-serif; text-align: left; gap: 1rem; }
     .faq-q:hover { background: var(--faint); }
     .faq-arrow { color: var(--violet); font-size: 1.1rem; transition: transform 0.2s; flex-shrink: 0; }
-    .faq-a {
-      display: none; padding: 0 1.4rem 1.1rem;
-      font-size: 0.9rem; color: var(--muted); line-height: 1.7;
-    }
+    .faq-a { display: none; padding: 0 1.4rem 1.1rem; font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
     .faq-item.open .faq-a { display: block; }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
-
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.1) 100%);
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 24px;
-      padding: 3.5rem 2rem;
-      text-align: center;
-      margin: 0 auto;
-      max-width: 700px;
-    }
-    .cta-banner h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 800; margin-bottom: 0.75rem;
-    }
+    .cta-banner { background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(79,70,229,0.1) 100%); border: 1px solid rgba(124,58,237,0.25); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; margin: 0 auto; max-width: 700px; }
+    .cta-banner h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 0.75rem; }
     .cta-banner p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-    }
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-logo {
-      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
-      background: linear-gradient(135deg, #fff, var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      display: inline-block; margin-bottom: 0.75rem;
-    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; background: linear-gradient(135deg, #fff, var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; margin-bottom: 0.75rem; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; }
     .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
     .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      nav { padding: 0.9rem 1.2rem; }
-      .nav-links a:not(.nav-cta) { display: none; }
-      section { padding: 3.5rem 1.2rem; }
-      .hero { padding: 6rem 1.2rem 3rem; }
-      .hero-stats { gap: 1.2rem; }
-      .cta-banner { padding: 2.5rem 1.2rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
-    }
+    @media (max-width: 600px) { nav { padding: 0.9rem 1.2rem; } .nav-links a:not(.nav-cta) { display: none; } section { padding: 3.5rem 1.2rem; } .hero { padding: 6rem 1.2rem 3rem; } .hero-stats { gap: 1.2rem; } .cta-banner { padding: 2.5rem 1.2rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
   </style>
-  <!-- Adsterra Social Bar -->
-  <script src="https://pl29723108.effectivecpmnetwork.com/97/ba/e0/97bae0f643c7340a8b5a1dbc1eba8bee.js"></script>
 </head>
 <body>
 
@@ -392,10 +140,11 @@
 <nav>
   <a class="nav-logo" href="/">VoxCraft</a>
   <div class="nav-links">
-    <a href="#tools">Tools</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-    <a href="#" class="nav-cta" onclick="showInterstitial();return false;">Launch App →</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#tools">Tools</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://app.voxcraft.site" class="nav-cta" target="_blank">Launch App →</a>
   </div>
 </nav>
 
@@ -406,28 +155,16 @@
   <h1>Turn Text Into<br><span>Natural AI Voice</span><br>In Seconds</h1>
   <p class="hero-sub">70+ Microsoft neural voices across 20+ languages. Download as MP3 instantly. No account. No watermark. No credit card.</p>
   <div class="hero-actions">
-    <a href="#" class="btn-primary" onclick="showInterstitial();return false;">
+    <a href="https://app.voxcraft.site" class="btn-primary" target="_blank">
       🚀 Try VoxCraft Free
     </a>
     <a href="#tools" class="btn-secondary">See All Tools ↓</a>
   </div>
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">70+</div>
-      <div class="stat-label">Neural Voices</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">Languages</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">9</div>
-      <div class="stat-label">Audio Tools</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">No Signup</div>
-    </div>
+    <div class="stat"><div class="stat-num">70+</div><div class="stat-label">Neural Voices</div></div>
+    <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Languages</div></div>
+    <div class="stat"><div class="stat-num">9</div><div class="stat-label">Audio Tools</div></div>
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">No Signup</div></div>
   </div>
 </section>
 
@@ -470,90 +207,19 @@
     <div class="reveal">
       <div class="section-label">9 Audio Tools</div>
       <h2 class="section-title">Everything you need<br>to create audio content</h2>
-      <p class="section-sub">VoxCraft is more than TTS. It's a complete free audio studio for creators.</p>
+      <p class="section-sub">VoxCraft is more than TTS. It is a complete free audio studio for creators.</p>
     </div>
     <div class="tools-grid reveal">
-      <div class="tool-card">
-        <div class="tool-icon">🎙️</div>
-        <div>
-          <h3>Text to Speech</h3>
-          <p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">⚡</div>
-        <div>
-          <h3>Batch TTS</h3>
-          <p>Paste multiple lines, generate all as separate MP3s in one click.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">📝</div>
-        <div>
-          <h3>Transcription</h3>
-          <p>Convert audio files to accurate text. Supports MP3, WAV, M4A, and more.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🔄</div>
-        <div>
-          <h3>Format Converter</h3>
-          <p>Convert between MP3, WAV, OGG, and FLAC instantly.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🔀</div>
-        <div>
-          <h3>Audio Merger</h3>
-          <p>Combine multiple audio files into one seamless track.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">✂️</div>
-        <div>
-          <h3>Audio Cutter</h3>
-          <p>Trim audio to exact timestamps. Cut intros, silence, or unwanted sections.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎵</div>
-        <div>
-          <h3>Background Music</h3>
-          <p>Generate royalty-free algorithmic background music for your content.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎚️</div>
-        <div>
-          <h3>Noise Remover</h3>
-          <p>Clean up background noise from voice recordings automatically.</p>
-        </div>
-      </div>
-      <div class="tool-card">
-        <div class="tool-icon">🎭</div>
-        <div>
-          <h3>Voice Changer</h3>
-          <p>Apply robot, echo, chipmunk, or pitch-shift effects to any audio.</p>
-        </div>
-      </div>
+      <div class="tool-card"><div class="tool-icon">🎙️</div><div><h3>Text to Speech</h3><p>70+ Microsoft neural voices. Instant MP3 download. No watermark.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">⚡</div><div><h3>Batch TTS</h3><p>Paste multiple lines, generate all as separate MP3s in one click.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">📝</div><div><h3>Transcription</h3><p>Convert audio files to accurate text. Supports MP3, WAV, M4A, and more.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">🔄</div><div><h3>Format Converter</h3><p>Convert between MP3, WAV, OGG, and FLAC instantly.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">🔀</div><div><h3>Audio Merger</h3><p>Combine multiple audio files into one seamless track.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">✂️</div><div><h3>Audio Cutter</h3><p>Trim audio to exact timestamps. Cut intros, silence, or unwanted sections.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">🎵</div><div><h3>Background Music</h3><p>Generate royalty-free algorithmic background music for your content.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">🎚️</div><div><h3>Noise Remover</h3><p>Clean up background noise from voice recordings automatically.</p></div></div>
+      <div class="tool-card"><div class="tool-icon">🎭</div><div><h3>Voice Changer</h3><p>Apply robot, echo, chipmunk, or pitch-shift effects to any audio.</p></div></div>
     </div>
-
-  </div>
-</section>
-
-<!-- AD BANNER -->
-<section style="padding:2rem 1.5rem">
-  <div style="display:flex;justify-content:center;align-items:center">
-    <script>
-      atOptions = {
-        'key' : '39e7b8dab5b7cc70522b647bb838d586',
-        'format' : 'iframe',
-        'height' : 300,
-        'width' : 160,
-        'params' : {}
-      };
-    </script>
-    <script src="https://www.highperformanceformat.com/39e7b8dab5b7cc70522b647bb838d586/invoke.js"></script>
   </div>
 </section>
 
@@ -613,7 +279,7 @@
           <li class="muted">Ads shown</li>
           <li class="muted">Monthly char limit</li>
         </ul>
-        <a href="#" class="btn-plan btn-plan-free" onclick="showInterstitial();return false;">Start Free →</a>
+        <a href="https://app.voxcraft.site" class="btn-plan btn-plan-free" target="_blank">Start Free →</a>
       </div>
       <div class="pricing-card featured">
         <div class="pricing-badge">Most Popular</div>
@@ -629,7 +295,7 @@
           <li>No ads</li>
           <li>Priority support</li>
         </ul>
-        <a href="#" class="btn-plan btn-plan-pro" onclick="showInterstitial();return false;">Upgrade to Pro →</a>
+        <a href="https://app.voxcraft.site" class="btn-plan btn-plan-pro" target="_blank">Upgrade to Pro →</a>
       </div>
     </div>
   </div>
@@ -675,17 +341,17 @@
   </div>
 </section>
 
-
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">VoxCraft</div>
     <div class="footer-links">
-      <a href="#" onclick="showInterstitial();return false;">Launch App</a>
-      <a href="https://app.voxcraft.site/?page=blog" target="_blank">Blog</a>
-      <a href="https://app.voxcraft.site/?page=privacy" target="_blank">Privacy Policy</a>
-      <a href="https://app.voxcraft.site/?page=terms" target="_blank">Terms of Service</a>
+      <a href="https://app.voxcraft.site" target="_blank">Launch App</a>
+      <a href="/blog/">Blog</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/about.html">About</a>
       <a href="mailto:support@voxcraft.site">support@voxcraft.site</a>
     </div>
     <div class="footer-copy">© 2026 VoxCraft Studio. Built with ♥ on mobile.</div>
@@ -693,14 +359,12 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
@@ -709,156 +373,11 @@
       if (!isOpen) item.classList.add('open');
     });
   });
-</script>
 
-
-<!-- INTERSTITIAL AD MODAL -->
-<div id="interstitial-overlay" style="
-  display:none;
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  background:rgba(0,0,0,0.92);
-  z-index:9999;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  font-family:'DM Sans',sans-serif;
-">
-  <!-- Top bar -->
-  <div style="
-    position:absolute;top:0;left:0;right:0;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:1rem 1.5rem;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  ">
-    <span style="color:rgba(255,255,255,0.4);font-size:0.8rem;">Advertisement</span>
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <span id="ad-countdown" style="
-        color:rgba(255,255,255,0.5);font-size:0.85rem;
-        background:rgba(255,255,255,0.08);
-        padding:0.3rem 0.75rem;border-radius:100px;
-      ">Opening in <strong id="countdown-num">8</strong>s</span>
-      <button id="skip-btn" onclick="launchApp()" style="
-        display:none;
-        background:linear-gradient(135deg,#7c3aed,#4f46e5);
-        color:white;border:none;cursor:pointer;
-        padding:0.45rem 1.1rem;border-radius:8px;
-        font-size:0.88rem;font-weight:500;
-        font-family:'DM Sans',sans-serif;
-      ">Skip →</button>
-    </div>
-  </div>
-
-  <!-- Ad content -->
-  <div style="
-    display:flex;flex-direction:column;align-items:center;
-    gap:1.5rem;padding:1rem;
-    margin-top:3rem;
-  ">
-    <div style="color:rgba(255,255,255,0.25);font-size:0.75rem;margin-bottom:-1rem;">Sponsored</div>
-
-    <!-- Native banner ad -->
-    <div style="max-width:400px;width:100%;">
-      <script async="async" data-cfasync="false" src="https://pl29723111.effectivecpmnetwork.com/5b0c617f15e7e87967b22cafcc23e1b7/invoke.js"></script>
-      <div id="container-5b0c617f15e7e87967b22cafcc23e1b7"></div>
-    </div>
-
-    <!-- Progress bar -->
-    <div style="width:280px;max-width:90vw;">
-      <div style="
-        height:3px;background:rgba(255,255,255,0.08);
-        border-radius:100px;overflow:hidden;
-      ">
-        <div id="progress-bar" style="
-          height:100%;width:0%;
-          background:linear-gradient(90deg,#7c3aed,#60a5fa);
-          border-radius:100px;
-          transition:width 1s linear;
-        "></div>
-      </div>
-      <p style="
-        color:rgba(255,255,255,0.3);font-size:0.75rem;
-        text-align:center;margin-top:0.5rem;
-      ">App will open automatically after ad</p>
-    </div>
-  </div>
-</div>
-
-<script>
-  var APP_URL = "https://app.voxcraft.site";
-  var adTimer = null;
-  var countdownInterval = null;
-
-  function showInterstitial() {
-    var overlay = document.getElementById("interstitial-overlay");
-    overlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
-
-    var seconds = 8;
-    var countdownEl = document.getElementById("countdown-num");
-    var skipBtn = document.getElementById("skip-btn");
-    var progressBar = document.getElementById("progress-bar");
-    var countdownText = document.getElementById("ad-countdown");
-
-    // Reset state
-    countdownEl.textContent = seconds;
-    skipBtn.style.display = "none";
-    progressBar.style.width = "0%";
-
-    // Start progress bar
-    setTimeout(function() {
-      progressBar.style.width = "100%";
-      progressBar.style.transition = "width " + seconds + "s linear";
-    }, 50);
-
-    // Show skip after 5 seconds
-    setTimeout(function() {
-      skipBtn.style.display = "inline-block";
-      countdownText.style.display = "none";
-    }, 5000);
-
-    // Countdown display
-    countdownInterval = setInterval(function() {
-      seconds--;
-      if (seconds > 0) {
-        countdownEl.textContent = seconds;
-      }
-    }, 1000);
-
-    // Auto launch after 8 seconds
-    adTimer = setTimeout(function() {
-      launchApp();
-    }, 8000);
-  }
-
-  function launchApp() {
-    // Clear timers
-    if (adTimer) clearTimeout(adTimer);
-    if (countdownInterval) clearInterval(countdownInterval);
-
-    // Close overlay
-    var overlay = document.getElementById("interstitial-overlay");
-    overlay.style.display = "none";
-    document.body.style.overflow = "";
-
-    // Open app
-    window.open(APP_URL, "_blank");
-  }
-</script>
-
-
-<script>
-  // Fetch pricing config from GitHub
   fetch("https://raw.githubusercontent.com/faisalchaudhary411/voxcraft/main/limits.json?t=" + Date.now())
     .then(function(r){ return r.json(); })
-    .then(function(cfg){
-      if (cfg.PRO_PRICE_LABEL) {
-        var el = document.getElementById("pro-price");
-        if (el) el.textContent = cfg.PRO_PRICE_LABEL;
-      }
-    })
-    .catch(function(){
-      // Silently keep hardcoded fallback values
-    });
+    .then(function(cfg){ if (cfg.PRO_PRICE_LABEL) { var el = document.getElementById("pro-price"); if (el) el.textContent = cfg.PRO_PRICE_LABEL; }})
+    .catch(function(){});
 </script>
 
 </body>
