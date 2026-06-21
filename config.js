@@ -10,6 +10,6 @@ window.VoxCraftConfig = {
   PRO_PRICE_LABEL:    '499 PKR',
   FREE_PRICE_LABEL:   '$0',
   CHECKOUT_URL:       'https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d',
-  FREE_FEATURES:      ['✓ All 9 audio tools','✓ 20 neural voices','✓ 8,000 chars/month','✓ 10 actions/day','✗ Ads on generate','✗ 5 batch lines max'],
+  FREE_FEATURES:      ['✓ All 9 audio tools','✓ 20 neural voices','✓ 8000 chars/month','✓ 10 actions/day','✗ Ads on generate','✗ 6 batch lines max'],
   PRO_FEATURES:       ['✓ All 9 tools unlimited','✓ All 70+ neural voices','✓ Unlimited characters','✓ Unlimited actions/day','✓ Zero ads','✓ Instant generation','✓ 20 batch lines'],
 };
