@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://voxcraft.site/sitemap.xml
+
+# Streamlit app is functional only - crawled but not indexed effectively
+# All content pages are on voxcraft.site (this domain)
