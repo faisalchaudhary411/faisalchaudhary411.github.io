@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — VoxCraft Studio</title>
+  <meta name="description" content="Get in touch with VoxCraft Studio. Support, feedback, and business inquiries welcome.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://voxcraft.site/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0a0812; --surface: #120f1e; --border: rgba(255,255,255,0.07); --purple: #7c3aed; --violet: #a78bfa; --text: #f1f0f5; --muted: rgba(255,255,255,0.45); }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(10,8,18,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; background: linear-gradient(135deg, #fff 0%, var(--violet) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--purple); color: white !important; padding: 0.45rem 1.1rem; border-radius: 8px; font-weight: 500; font-size: 0.88rem !important; text-decoration: none; }
+    main { max-width: 720px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
+    h1 { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: 0.95rem; }
+    .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+    .contact-icon { font-size: 1.5rem; width: 48px; height: 48px; background: rgba(124,58,237,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .contact-card p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+    .contact-card a { color: var(--violet); text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 0.75rem; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.2); }
+    @media (max-width: 600px) { nav { padding: 0.9rem 1.2rem; } .nav-links a:not(.nav-cta) { display: none; } main { padding: 6rem 1.2rem 3rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">VoxCraft</a>
+  <div class="nav-links">
+    <a href="/blog/">Blog</a>
+    <a href="/">Home</a>
+    <a href="https://app.voxcraft.site" class="nav-cta" target="_blank">Launch App →</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Contact Us</h1>
+  <p class="subtitle">Have questions, feedback, or need support? We are here to help.</p>
+
+  <div class="contact-card">
+    <div class="contact-icon">📧</div>
+    <div>
+      <h3>Email</h3>
+      <p><a href="mailto:support@voxcraft.studio">support@voxcraft.studio</a></p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-icon">🐦</div>
+    <div>
+      <h3>Twitter / X</h3>
+      <p><a href="https://twitter.com/VoxCraftStudio" target="_blank">@VoxCraftStudio</a></p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-icon">💬</div>
+    <div>
+      <h3>Discord</h3>
+      <p><a href="https://discord.gg/voxcraft" target="_blank">discord.gg/voxcraft</a></p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-icon">🕐</div>
+    <div>
+      <h3>Business Hours</h3>
+      <p>Monday – Friday, 9AM – 6PM UTC</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-icon">📍</div>
+    <div>
+      <h3>Location</h3>
+      <p>Remote-first team · Built with ♥ on mobile</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/blog/">Blog</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/about.html">About</a>
+  </div>
+  <div class="footer-copy">© 2026 VoxCraft Studio</div>
+</footer>
+
+</body>
+</html>
