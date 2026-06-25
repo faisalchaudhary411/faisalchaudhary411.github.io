@@ -4,14 +4,15 @@
     "name": "Faisal Aslam",
     "email": "faisalchaudhary411@gmail.com",
     "phone": "",
-    "status": "payment_pending",
+    "status": "approved",
     "date": "2026-06-25 17:47",
-    "key_assigned": "",
+    "key_assigned": "VOXCRAFT-PRO-004FR3I050WWT2",
     "ip": "b23a6a8439c0dde5",
     "notified": true,
     "payment_method": "EasyPaisa",
     "txn_id": "",
-    "has_screenshot": true
+    "has_screenshot": true,
+    "approved_date": "2026-06-25 17:49"
   },
   {
     "id": "REQ-1782138960-2556",
