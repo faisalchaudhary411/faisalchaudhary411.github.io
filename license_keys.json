@@ -7,10 +7,10 @@
     "activated_on": "2026-07-02 22:53"
   },
   "VOXCRAFT-PRO-V1IAP6XFL9XMI8": {
-    "used": false,
+    "used": true,
     "revoked": false,
     "created": "2026-07-02 22:58",
-    "activated_by": "",
-    "activated_on": ""
+    "activated_by": "b23a6a8439c0dde5",
+    "activated_on": "2026-07-02 23:01"
   }
 }
