@@ -1,16 +1,1 @@
-{
-  "VOXCRAFT-PRO-NC6L1XXP50WOZG": {
-    "used": true,
-    "revoked": false,
-    "created": "2026-07-06 18:28",
-    "activated_by": "b23a6a8439c0dde5",
-    "activated_on": "2026-07-06 18:28",
-    "customer_name": "Manual",
-    "customer_email": "",
-    "subscription_type": "monthly",
-    "expires_at": "2026-08-05 18:28",
-    "fastpay_order_id": "",
-    "amount_paid": 0,
-    "renewal_count": 0
-  }
-}
+{}
