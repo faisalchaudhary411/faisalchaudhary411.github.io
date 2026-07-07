@@ -392,66 +392,109 @@
   });
 
   // ── Load dynamic pricing & features from admin config ──
+  function normalizeFeatures(features) {
+    if (!features) return [];
+    if (Array.isArray(features)) return features;
+    if (typeof features === 'string') return features.split('|').map(s => s.trim()).filter(Boolean);
+    return [];
+  }
+
   function renderFeatureList(elementId, features) {
     const el = document.getElementById(elementId);
-    if (!el || !features || !features.length) return;
-    el.innerHTML = features.map(function(feat) {
-      var isMuted = feat.trim().startsWith('✗');
-      return '<li class="' + (isMuted ? 'muted' : '') + '">' + feat.trim() + '</li>';
+    if (!el) { console.warn('[VoxCraft] Element not found:', elementId); return; }
+    const list = normalizeFeatures(features);
+    if (!list.length) { console.warn('[VoxCraft] No features for:', elementId); return; }
+
+    el.innerHTML = list.map(function(feat) {
+      var trimmed = feat.trim();
+      var isMuted = trimmed.startsWith('✗') || trimmed.startsWith('x') || trimmed.startsWith('X');
+      var clean = trimmed.replace(/^[✗xX]\s*/, '');
+      return '<li class="' + (isMuted ? 'muted' : '') + '">' + (isMuted ? '✗ ' : '✓ ') + clean + '</li>';
     }).join('');
   }
 
-  // Try config.js first (fast, from same domain), fallback to limits.json
-  function loadConfig() {
-    // Try config.js first
-    var script = document.createElement('script');
-    script.src = '/config.js?t=' + Date.now();
-    script.onload = function() {
-      if (window.VoxCraftConfig) {
-        var cfg = window.VoxCraftConfig;
-        if (cfg.PRO_PRICE_LABEL) {
-          var p = document.getElementById('pro-price');
-          if (p) p.textContent = cfg.PRO_PRICE_LABEL;
-        }
-        if (cfg.FREE_PRICE_LABEL) {
-          var fp = document.getElementById('free-price');
-          if (fp) fp.textContent = cfg.FREE_PRICE_LABEL;
-        }
-        if (cfg.FREE_FEATURES && cfg.FREE_FEATURES.length) {
-          renderFeatureList('free-features', cfg.FREE_FEATURES);
-        }
-        if (cfg.PRO_FEATURES && cfg.PRO_FEATURES.length) {
-          renderFeatureList('pro-features', cfg.PRO_FEATURES);
-        }
-      }
-    };
-    script.onerror = function() {
-      // Fallback to limits.json from GitHub
-      fetch("https://raw.githubusercontent.com/faisalchaudhary411/faisalchaudhary411.github.io/main/limits.json?t=" + Date.now())
-        .then(function(r){ return r.json(); })
-        .then(function(cfg){
-          if (cfg.PRO_PRICE_LABEL) {
-            var el = document.getElementById("pro-price");
-            if (el) el.textContent = cfg.PRO_PRICE_LABEL;
-          }
-          if (cfg.FREE_PRICE_LABEL) {
-            var fel = document.getElementById("free-price");
-            if (fel) fel.textContent = cfg.FREE_PRICE_LABEL;
-          }
-          if (cfg.FREE_FEATURES) {
-            var feats = cfg.FREE_FEATURES.split('|');
-            renderFeatureList('free-features', feats);
-          }
-          if (cfg.PRO_FEATURES) {
-            var pfeats = cfg.PRO_FEATURES.split('|');
-            renderFeatureList('pro-features', pfeats);
-          }
-        })
-        .catch(function(){});
-    };
-    document.head.appendChild(script);
+  function applyConfig(cfg) {
+    if (!cfg) return;
+    console.log('[VoxCraft] Applying config:', cfg);
+
+    if (cfg.PRO_PRICE_LABEL) {
+      var p = document.getElementById('pro-price');
+      if (p) p.textContent = cfg.PRO_PRICE_LABEL;
+    }
+    if (cfg.FREE_PRICE_LABEL) {
+      var fp = document.getElementById('free-price');
+      if (fp) fp.textContent = cfg.FREE_PRICE_LABEL;
+    }
+    if (cfg.PRO_PERIOD_LABEL) {
+      var pp = document.getElementById('pro-period');
+      if (pp) pp.textContent = cfg.PRO_PERIOD_LABEL;
+    }
+    if (cfg.FREE_PERIOD_LABEL) {
+      var fpp = document.getElementById('free-period');
+      if (fpp) fpp.textContent = cfg.FREE_PERIOD_LABEL;
+    }
+    if (cfg.FREE_FEATURES) {
+      renderFeatureList('free-features', cfg.FREE_FEATURES);
+    }
+    if (cfg.PRO_FEATURES) {
+      renderFeatureList('pro-features', cfg.PRO_FEATURES);
+    }
   }
-  loadConfig();
+
+  function loadConfig() {
+    // Try config.js via fetch (avoids script-tag timing issues)
+    fetch('/config.js?t=' + Date.now())
+      .then(function(r) {
+        if (!r.ok) throw new Error('config.js HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function(text) {
+        // config.js should contain: window.VoxCraftConfig = {...};
+        // Execute in a clean way to extract the object
+        var fn = new Function(text + '; return (typeof window !== "undefined" && window.VoxCraftConfig) || VoxCraftConfig || null;');
+        var cfg = fn();
+        if (cfg) {
+          console.log('[VoxCraft] Loaded from /config.js');
+          applyConfig(cfg);
+        } else {
+          throw new Error('config.js loaded but no VoxCraftConfig found');
+        }
+      })
+      .catch(function(err1) {
+        console.warn('[VoxCraft] /config.js failed:', err1.message);
+
+        // Fallback: limits.json via CORS proxy or direct fetch
+        var fallbackUrl = 'https://raw.githubusercontent.com/faisalchaudhary411/faisalchaudhary411.github.io/main/limits.json?t=' + Date.now();
+
+        // Try with corsproxy.io first (free CORS proxy)
+        fetch('https://corsproxy.io/?' + encodeURIComponent(fallbackUrl))
+          .then(function(r) { if (!r.ok) throw new Error('CORS proxy HTTP ' + r.status); return r.json(); })
+          .then(function(cfg) {
+            console.log('[VoxCraft] Loaded via CORS proxy');
+            applyConfig(cfg);
+          })
+          .catch(function(err2) {
+            console.warn('[VoxCraft] CORS proxy failed:', err2.message);
+            // Try direct (might work if browser extensions allow it)
+            return fetch(fallbackUrl)
+              .then(function(r) { if (!r.ok) throw new Error('Direct HTTP ' + r.status); return r.json(); })
+              .then(function(cfg) {
+                console.log('[VoxCraft] Loaded direct from GitHub');
+                applyConfig(cfg);
+              });
+          })
+          .catch(function(err3) {
+            console.error('[VoxCraft] All config sources failed. Using defaults.', err3.message);
+          });
+      });
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadConfig);
+  } else {
+    loadConfig();
+  }
 
   // ── Session-based popunder: only once per session ──
   (function(){
@@ -459,18 +502,15 @@
     var alreadyShown = sessionStorage.getItem(AD_SESSION_KEY);
     if (alreadyShown) return;
 
-    // Mark as shown immediately on first interaction
     function markShown() {
       sessionStorage.setItem(AD_SESSION_KEY, '1');
     }
 
-    // Attach to Launch App button and other CTAs
     var launchBtn = document.getElementById('launch-btn');
     if (launchBtn) {
       launchBtn.addEventListener('click', function(e) {
         if (sessionStorage.getItem(AD_SESSION_KEY)) return;
         markShown();
-        // Allow normal navigation but open popunder in background
         setTimeout(function(){
           var w = window.open('about:blank', '_blank');
           if(w) {
