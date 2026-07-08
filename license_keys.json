@@ -17,11 +17,11 @@
     "last_seen": "2026-07-08 12:46"
   },
   "VOXCRAFT-PRO-FI023E1MS4859P": {
-    "used": false,
+    "used": true,
     "revoked": false,
     "created": "2026-07-08 12:46",
     "activated_by": "",
-    "activated_on": "",
+    "activated_on": "2026-07-08 12:46",
     "customer_name": "Pro User",
     "customer_email": "faisalchaudhary411@gmail.com",
     "subscription_type": "monthly",
@@ -30,6 +30,6 @@
     "freemius_license_id": "1994600",
     "amount_paid": 840.0,
     "renewal_count": 0,
-    "activated_fp": ""
+    "activated_fp": "b23a6a8439c0dde5"
   }
 }
