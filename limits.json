@@ -3,12 +3,12 @@
   "FREE_DAILY_ACTIONS": 10,
   "FREE_BATCH_LIMIT": 6,
   "FREE_PREVIEW_LIMIT": 5,
-  "PRO_PRICE_$": 2.99,
-  "PRO_PRICE_LABEL": "2.99$",
-  "FREE_PRICE_LABEL": "$0",
   "PRO_BATCH_MAX": 20,
   "FREE_VOICES_COUNT": 20,
-  "CHECKOUT_URL": "https://voxcraft.lemonsqueezy.com/checkout/buy/e6be9d8d-2532-4ae8-9697-140d73ad9d9d",
-  "FREE_FEATURES": "\u2713 All 9 audio tools|\u2713 20 neural voices|\u2713 8000 chars/month|\u2713 10 actions/day|\u2717 Ads on generate|\u2717 6 batch lines max",
-  "PRO_FEATURES": "\u2713 All 9 tools unlimited|\u2713 All 70+ neural voices|\u2713 Unlimited characters|\u2713 Unlimited actions/day|\u2713 Zero ads|\u2713 Instant generation|\u2713 20 batch lines"
+  "PRO_PRICE_PKR": 840,
+  "PRO_PRICE_LABEL": "2.99$",
+  "FREE_PRICE_LABEL": "$0",
+  "CHECKOUT_URL": "",
+  "FREE_FEATURES": "✓ All 9 audio tools|✓ 20 neural voices|✓ 8000 chars/month|✓ 10 actions/day|✗ Ads on generate|✗ 6 batch lines max",
+  "PRO_FEATURES": "✓ All 9 tools unlimited|✓ All 70+ neural voices|✓ Unlimited characters|✓ Unlimited actions/day|✓ Zero ads|✓ Instant generation|✓ 20 batch lines"
 }
