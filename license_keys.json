@@ -1,21 +1,4 @@
 {
-  "VOXCRAFT-PRO-EAUDKH0V5V48RU": {
-    "used": true,
-    "revoked": true,
-    "created": "2026-07-07 19:56",
-    "activated_by": "",
-    "activated_on": "2026-07-07 19:58",
-    "customer_name": "Manual",
-    "customer_email": "",
-    "subscription_type": "monthly",
-    "expires_at": "2026-08-06 19:56",
-    "paddle_order_id": "",
-    "freemius_license_id": "",
-    "amount_paid": 0,
-    "renewal_count": 0,
-    "activated_fp": "b23a6a8439c0dde5",
-    "last_seen": "2026-07-31 06:27"
-  },
   "VOXCRAFT-PRO-FI023E1MS4859P": {
     "used": true,
     "revoked": false,
