@@ -34,11 +34,11 @@
     "last_seen": "2026-07-30 16:31"
   },
   "VOXCRAFT-PRO-SS2VMTTU2NKEXH": {
-    "used": false,
+    "used": true,
     "revoked": false,
     "created": "2026-08-01 15:50",
-    "activated_by": "",
-    "activated_on": "",
+    "activated_by": "91323b650df137ab",
+    "activated_on": "2026-08-01 15:52",
     "customer_name": "Muhammad Faisal Aslam",
     "customer_email": "faisalchaudhary411@gmail.com",
     "subscription_type": "monthly",
@@ -46,6 +46,6 @@
     "freemius_license_id": "",
     "amount_paid": 0,
     "renewal_count": 0,
-    "activated_fp": ""
+    "activated_fp": "f3b6d4cddda888a9"
   }
 }
