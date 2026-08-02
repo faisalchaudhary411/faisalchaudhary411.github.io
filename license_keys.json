@@ -16,23 +16,6 @@
     "activated_fp": "b23a6a8439c0dde5",
     "last_seen": "2026-08-02 08:19"
   },
-  "VOXCRAFT-PRO-WT7Q4WUGEYSXJ1": {
-    "used": true,
-    "revoked": true,
-    "created": "2026-08-01 19:51",
-    "activated_by": "",
-    "activated_on": "2026-08-01 19:51",
-    "customer_name": "Pro User",
-    "customer_email": "faisalchaudhary411@gmail.com",
-    "subscription_type": "monthly",
-    "expires_at": "2026-08-31 19:51",
-    "paddle_order_id": "",
-    "freemius_license_id": "2009746",
-    "amount_paid": 840.0,
-    "renewal_count": 0,
-    "activated_fp": "b23a6a8439c0dde5",
-    "last_seen": "2026-08-01 19:51"
-  },
   "VOXCRAFT-PRO-G9X16C35TGSE8U": {
     "used": true,
     "revoked": false,
