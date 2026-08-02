@@ -34,11 +34,11 @@
     "last_seen": "2026-08-01 19:51"
   },
   "VOXCRAFT-PRO-G9X16C35TGSE8U": {
-    "used": false,
+    "used": true,
     "revoked": false,
     "created": "2026-08-02 10:44",
-    "activated_by": "",
-    "activated_on": "",
+    "activated_by": "93039e02ac32f719",
+    "activated_on": "2026-08-02 10:44",
     "customer_name": "Pro User",
     "customer_email": "faisalchaudhary411@gmail.com",
     "subscription_type": "monthly",
@@ -46,6 +46,6 @@
     "freemius_license_id": "2009934",
     "amount_paid": 840,
     "renewal_count": 0,
-    "activated_fp": ""
+    "activated_fp": "f3b6d4cddda888a9"
   }
 }
