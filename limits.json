@@ -1,5 +1,5 @@
 {
-  "FREE_CHAR_LIMIT": 5000,
+  "FREE_CHAR_LIMIT": 4000,
   "FREE_MONTHLY_CHAR_QUOTA": 10000,
   "FREE_DAILY_ACTIONS": 10,
   "FREE_BATCH_LIMIT": 6,
@@ -11,7 +11,7 @@
   "PRO_PRICE_LABEL": "2.99$",
   "FREE_PRICE_LABEL": "$0",
   "CHECKOUT_URL": "https://checkout.freemius.com/product/33867/plan/55666/",
-  "FREE_FEATURES": "✓ All 9 audio tools|✓ 20 neural voices|✓ 8000 chars/month|✓ 10 actions/day|✗ Ads on generate|✗ 6 batch lines max",
+  "FREE_FEATURES": "✓ All 9 audio tools|✓ 20 neural voices|✓ 10000 chars/month|✓ 10 actions/day|✗ Ads on generate|✗ 6 batch lines max",
   "PRO_FEATURES": "✓ All 9 tools unlimited|✓ All 70+ neural voices|✓ Unlimited characters|✓ Unlimited actions/day|✓ Zero ads|✓ Instant generation|✓ 20 batch lines",
   "AUTO_APPROVE_MANUAL": true,
   "MANUAL_GRACE_HOURS": 24
